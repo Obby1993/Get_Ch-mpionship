@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :events do
+    resources :teams, only: [:index, :create, :new]
+  end
+  resources :teams, only: [:destroy, :edit, :update, :show]  do
+    resources :select_players, only: [:create, :destroy]
+  end
 end
