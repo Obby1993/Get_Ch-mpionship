@@ -15,29 +15,48 @@
     </div>
 </div>
 
+<div class = "logged-in">
+   <% if user_signed_in? %>
+            <p> another div here</p>
+            <%end%>
+        </li>
+</div>
+
 <div class="cards">
 
   <div id="golf">
+    <%= link_to root_path, class: "link-to-show" do  %>
     <a href="">Golf</a>
+    <% end %>
   </div>
 
   <div  id="football">
+  <%= link_to root_path, class: "link-to-show" do  %>
     <a href="">Football</a>
+    <% end %>
   </div>
 
   <div id="basket">
+  <%= link_to root_path, class: "link-to-show" do  %>
       <a href="">Basket</a>
+      <% end %>
   </div>
 
    <div id="ping-pong">
+   <%= link_to root_path, class: "link-to-show" do  %>
     <a href="">Ping-pong</a>
+    <% end %>
   </div>
 
   <div id="petanque">
+  <%= link_to root_path, class: "link-to-show" do  %>
     <a href="">Petanque</a>
+    <% end %>
   </div>
 
   <div id="volley">
+  <%= link_to root_path, class: "link-to-show" do  %>
     <a href="">Beach Volley</a>
+    <% end %>
   </div>
 </div>
