@@ -18,7 +18,7 @@
             <%end%>
         </li>
          <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "default.png", width: 40, height: 40, crop: :fill, class: "avatar avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <p class ="dropdown-item"><%= link_to "Profile", root_path, class: "nav-link"%></p>
               <p class ="dropdown-item"><%= link_to "New Parking", root_path, class: "nav-link" %></p>
