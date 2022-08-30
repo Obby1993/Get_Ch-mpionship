@@ -3,10 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :teams, through: :select_players
-  has_many :events
+  has_many :select_players
+  has_many :teams, through: :select_players, dependent: :destroy
+  has_many :events, dependent: :destroy
   has_one_attached :photo
 
   validates :first_name, :last_name, :email, :phone_number, :age, :gender, :address, presence: true
-  validates :event_gender, uniqueness: ["Man", "Woman"]
+  validates :gender, inclusion: { in: ["Man", "Woman"]}
 end

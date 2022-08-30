@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_133501) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_105530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,13 +56,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_133501) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activity"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "select_players", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "team_id", null: false
-    t.boolean "validate", default: false
+    t.boolean "confirmation", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_select_players_on_team_id"
