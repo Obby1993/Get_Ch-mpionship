@@ -1,0 +1,48 @@
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%=cl_image_path @event.photos.first.key, height: 300, crop: :fill %>')">
+  <div class="text-banner">
+    <h1><%=@event.event_name%></h1>
+    <%= link_to "Participer", new_event_team_path(@event), class:"btn"%>
+      <div class="cloture">
+        <h3>Cloture des inscriptions:</h3>
+        <div class="time"></div>
+        <span id="countdown_day" >--</span> jours
+        <span id="countdown_hour">--</span> heures
+        <span id="countdown_min" >--</span> minutes
+        <span id="countdown_sec" >--</span> secondes
+      </div>
+  </div>
+</div>
+
+
+<h3>Détails de l'événement</h3>
+  <div class="informations-sport">
+    <ul>
+      <li>Activité: <%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%> </li>
+      <li>Genre: <%=@event.event_gender%> </li>
+      <li>Nombre d'équipe: <%=@event.nb_team%> </li>
+      <li>Prize Money total: <%=@event.prizemoney%>€ </li>
+      <li>Prix d'inscription: <%=@event.price_by_player%>€ par joueur </li>
+    </ul>
+  </div>
+  <div class="orga-map d-flex">
+  <div class="informations-orga">
+    <ul>
+      <li>Adresse:   </li>
+      <li>Début: <%=@event.event_start%> </li>
+      <li>Fin: <%=@event.event_end%> </li>
+      <%if @event.user.organism == "Yes"%>
+        <li>Organisateur: <%event.user.company_name%></li>
+        <li> Contact: <%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></li>
+      <%else%>
+        <li>Organisateur: <%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%>  </li>
+      <%end%>
+        <li>Numéro: <%=@event.user.phone_number     %>  Email: <%=@event.user.email%> </li>
+    </ul>
+  </div>
+  <div class="map"></div>
+  </div>
+  </div>
+
+<div class="information">
+
+</div>

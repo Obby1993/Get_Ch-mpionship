@@ -1,0 +1,74 @@
+@import "components/navbar";
+@import "components/footer";
+
+.banner-show {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+
+}
+.text-banner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: auto;
+}
+
+h1 {margin-bottom : 40px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn {
+  margin-bottom: 40px;
+  font-size: 20px;
+  color: cadetblue;
+  border: solid;
+  border-color: cadetblue;
+}
+
+.cloture {
+  text-align: center;
+  color: antiquewhite;
+}
+
+
+h3 {margin: auto;
+margin-top: 50px;
+margin-bottom: 50px;}
+
+.informations-sport {
+  background-color: #ededed;
+    width: 90%;
+    margin: auto;
+    padding: 50px;
+    padding-top: 50px;
+    border-radius: 16px;
+}
+
+li {margin-bottom: 8px;
+  font-size: 16px;}
+
+.orga-map{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.informations-orga{
+  width: 40%;
+  border-radius: 16px
+}
+
+
+.map {
+  width: 40%;
+  background-color: aqua;
+  border-radius: 16px
+}
