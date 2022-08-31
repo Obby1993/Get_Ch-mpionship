@@ -15,33 +15,50 @@
 
 
 <h3>Détails de l'événement</h3>
-  <div class="informations-sport">
+<div class="informations-sport">
+  <div class="information">
     <ul>
-      <li>Activité:     <%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%> </li>
-      <li>Genre: <%=@event.event_gender%> </li>
-      <li>Nombre d'équipe: <%=@event.nb_team%> </li>
-      <li>Prize Money total: <%=@event.prizemoney%>€ </li>
-      <li>Prix d'inscription: <%=@event.price_by_player%>€ par joueur </li>
+      <li>Activité:     <span><%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%></span> </li>
+      <li>Genre: <span><%=@event.event_gender%></span> </li>
+      <li>Nombre d'équipe: <span><%=@event.nb_team%></span> </li>
+      <li>Prize Money total: <span><%=@event.prizemoney%>€</span> </li>
+      <li>Prix d'inscription: <span><%=@event.price_by_player%>€ par joueur </span></li>
     </ul>
   </div>
-  <div class="orga-map d-flex">
-  <div class="informations-orga">
-    <ul>
-      <li>Adresse: <%=@event.event_address%>  </li>
-      <li>Début: <%=@event.event_start%> </li>
-      <li>Fin: <%=@event.event_end%> </li>
-      <%if @event.user.organism == "Yes"%>
-        <li>Organisateur: <%event.user.company_name%></li>
-        <li> Contact: <%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></li>
-      <%else%>
-        <li>Organisateur: <%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%>  </li>
+  <div class="inscription">
+    <h4 class="h">Equipes inscrites<h4>
+    <div class="equipes">
+      <ul>
+        <li><p><span>Equipes</span></p><p><span>Date d'inscription</span></p></li>
+      <%@teams.each do |team| %>
+        <li><p><%=team.team_name%></p><p><%=team.created_at%></p></li>
       <%end%>
-        <li>Numéro: <%=@event.user.phone_number     %>  Email: <%=@event.user.email%> </li>
-    </ul>
+    </div>
   </div>
-  <div class="map"></div>
+</div>
+  <div class="orga-map d-flex">
+    <div class="informations-orga">
+      <ul>
+        <li>Adresse: <span><%=@event.event_address%></span>  </li>
+        <li>Début: <span><%=@event.event_start%></span> </li>
+        <li>Fin: <span><%=@event.event_end%></span> </li>
+        <%if @event.user.organism == "Yes"%>
+          <li>Organisateur: <span><%event.user.company_name%></span></li>
+          <li> Contact: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
+        <%else%>
+          <li>Organisateur: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span>  </li>
+        <%end%>
+          <li>Numéro: <span><%=@event.user.phone_number%></span></li>
+          <li>Email: <span><%=@event.user.email%></span></li>
+      </ul>
+    </div>
+    <div class= "map"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
-  </div>
+</div>
 
 <div class="information">
 

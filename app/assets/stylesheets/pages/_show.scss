@@ -28,9 +28,12 @@ h1 {margin-bottom : 40px;
 .btn {
   margin-bottom: 40px;
   font-size: 35px;
-  color: cadetblue;
+  color: rgb(0, 0, 0);
   border: solid;
-  border-color: cadetblue;
+  border-color: rgb(0, 0, 0);
+  background-color: #ededed;
+  opacity: 0.7;
+  border-radius: 12px;
 }
 
 .cloture {
@@ -43,6 +46,8 @@ h3 {margin: auto;
 margin-top: 50px;
 margin-bottom: 50px;}
 
+
+
 .informations-sport {
   margin: auto;
   background-color: #ededed;
@@ -52,13 +57,53 @@ margin-bottom: 50px;}
   padding-top: 50px;
   border-radius: 16px;
   margin-bottom: 50px;
-}
-ul{
-  height: 400px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  // justify-content: space-between;
+
 }
+
+.information {
+  width: 50%;
+  ul{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.inscription {
+  width: 50%;
+  text-align: center;
+}
+.equipes {
+  border-top: solid;
+  width: 500px;
+  margin: auto;
+  ul{border:none;
+  padding: 0;}
+  li {display: flex;
+    text-decoration: none;
+    border-bottom: solid;
+    border-left: solid;
+    width: 100%;
+    p{
+      border-right:solid;
+      padding: 4px;
+      width: 50%;
+      text-align: center;
+      background-color: #fff9f9;
+      margin: 0;
+    }
+  }
+}
+.h {margin-bottom: 16px;}
+// ul{
+//   height: 400px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+// }
 li {
   font-size: 16px;
 }
@@ -70,6 +115,12 @@ li {
   margin: auto;
   margin-bottom: 50px;
   height: 400px;
+  ul{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }
 
 .informations-orga{
@@ -91,4 +142,8 @@ li {
   border-radius: 16px;
   margin: 0;
 
+}
+
+span{
+  font-weight: bolder;
 }
