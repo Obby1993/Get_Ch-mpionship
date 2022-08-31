@@ -18,26 +18,35 @@
     <div class = "search">
     </div>
     <div class = "cards-index">
-       <div style="margin-top:90px; margin-left:40px; ">
-         <h1 style ="font-family: roboto;"><strong>Liste de tous les événements</strong></h1>
+       <div style="margin-top:50px; margin-left:40px; ">
+         <h1><strong>Liste de tous les événements</strong></h1>
         </div>
-        <ul style ="font-family: roboto;" >
+        <ul>
           <% @events.each do |event| %>
-            <%=  link_to event_path(event), class: "link-to-show" do%>
             <div class="card-product">
-
-                <%= cl_image_tag parking.photos.first.key, width:200 %>
+                <% if event.photos.empty? %>
+                  <%= image_tag "event-default.png", width:200 %>
+                <% else %>
+                  <%= cl_image_tag event.photos.first.key, width:200 %>
+                <% end %>
               <div class="card-product-infos">
-                <h2 style ="font-family: roboto;"><%= parking.address %></h2>
-                <p> <%= parking.description %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
-                <p> Available dates: <%= parking.start_date %> to <%= parking.end_date %></p>
+                <h2> <%= event.event_name %>, <%= event.activity %></h2>
+                <p>  <%= event.event_address %></p>
+                <p> Date: de <%= event.event_start %> à <%= event.event_end %></p>
+                <%=  link_to event_path(event), class: "link-to-show" do%>
+                  <p>détails</p>
+                <% end  %>
               </div>
-              <% end  %>
             </div>
           <% end %>
         </ul>
     </div>
   </div>
-  <div class = "map">
-  </div>
+
+    <div class= "map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
 </div>
