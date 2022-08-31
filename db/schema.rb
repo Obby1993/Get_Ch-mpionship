@@ -99,6 +99,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_105623) do
     t.string "address"
     t.string "main_sport"
     t.boolean "medical_certificate", default: false
+    t.string "role"
+    t.string "organism"
+    t.string "company_name"
+    t.string "company_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

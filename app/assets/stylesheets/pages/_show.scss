@@ -27,7 +27,7 @@ h1 {margin-bottom : 40px;
 
 .btn {
   margin-bottom: 40px;
-  font-size: 20px;
+  font-size: 35px;
   color: cadetblue;
   border: solid;
   border-color: cadetblue;
@@ -44,31 +44,51 @@ margin-top: 50px;
 margin-bottom: 50px;}
 
 .informations-sport {
+  margin: auto;
   background-color: #ededed;
-    width: 90%;
-    margin: auto;
-    padding: 50px;
-    padding-top: 50px;
-    border-radius: 16px;
+  width: 90%;
+  margin: auto;
+  padding: 50px;
+  padding-top: 50px;
+  border-radius: 16px;
+  margin-bottom: 50px;
 }
-
-li {margin-bottom: 8px;
-  font-size: 16px;}
+ul{
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+li {
+  font-size: 16px;
+}
 
 .orga-map{
   display: flex;
   width: 90%;
   justify-content: space-between;
+  margin: auto;
+  margin-bottom: 50px;
+  height: 400px;
 }
 
 .informations-orga{
-  width: 40%;
-  border-radius: 16px
+  width: 48%;
+  border-radius: 16px;
+  padding: 50px;
+  padding-top: 50px;
+  border-radius: 16px;
+  background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+
 }
 
 
 .map {
-  width: 40%;
+  width: 48%;
   background-color: aqua;
-  border-radius: 16px
+  border-radius: 16px;
+  margin: 0;
+
 }

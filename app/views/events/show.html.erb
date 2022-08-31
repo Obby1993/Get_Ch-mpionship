@@ -17,7 +17,7 @@
 <h3>Détails de l'événement</h3>
   <div class="informations-sport">
     <ul>
-      <li>Activité: <%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%> </li>
+      <li>Activité:     <%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%> </li>
       <li>Genre: <%=@event.event_gender%> </li>
       <li>Nombre d'équipe: <%=@event.nb_team%> </li>
       <li>Prize Money total: <%=@event.prizemoney%>€ </li>
@@ -27,7 +27,7 @@
   <div class="orga-map d-flex">
   <div class="informations-orga">
     <ul>
-      <li>Adresse:   </li>
+      <li>Adresse: <%=@event.event_address%>  </li>
       <li>Début: <%=@event.event_start%> </li>
       <li>Fin: <%=@event.event_end%> </li>
       <%if @event.user.organism == "Yes"%>
