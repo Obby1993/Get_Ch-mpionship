@@ -11,6 +11,9 @@ class Event < ApplicationRecord
   validates :deadline_register, comparison: { less_than_or_equal_to: :event_start }
   validates :nb_players_team, length: { minimum: 1 }
 
+  geocoded_by :event_address
+  after_validation :geocode, if: :will_save_change_to_event_address?
+
   private
 
   def event_start_cannot_be_in_the_past
