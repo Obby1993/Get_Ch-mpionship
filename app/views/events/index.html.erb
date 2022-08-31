@@ -1,0 +1,42 @@
+<div class="mini-banner">
+    <div class = "title">
+      <h1>Get Ch@mpionship</h1>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex flex-column" id="searchBox">
+        <h3>trouver un tournoi dans votre région</h3>
+        <div id = "searchbox" class="form col-xs-12">
+          <input class="col-xs-9" id="searchBar" type="text" placeholder="Ville, département, région"/>
+          <input class="col-xs-9" id="searchBar" type="text" placeholder="activité recherchée"/>
+          <button type="button" class="btn btn-dark">search</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class = "container-index">
+  <div class = "index-up">
+    <div class = "search">
+    </div>
+    <div class = "cards-index">
+       <div style="margin-top:90px; margin-left:40px; ">
+         <h1 style ="font-family: roboto;"><strong>Liste de tous les événements</strong></h1>
+        </div>
+        <ul style ="font-family: roboto;" >
+          <% @events.each do |event| %>
+            <%=  link_to event_path(event), class: "link-to-show" do%>
+            <div class="card-product">
+                <%= cl_image_tag parking.photos.first.key, width:200 %>
+              <div class="card-product-infos">
+                <h2 style ="font-family: roboto;"><%= parking.address %></h2>
+                <p> <%= parking.description %> (<%= parking.width %>cm wide, <%= parking.height %>cm tall, and <%= parking.length %>cm long.)</p>
+                <p> Available dates: <%= parking.start_date %> to <%= parking.end_date %></p>
+              </div>
+              <% end  %>
+            </div>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+  <div class = "map">
+  </div>
+</div>
