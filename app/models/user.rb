@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_one_attached :photo
 
-  validates :first_name, :last_name, :email, :phone_number, :age, :gender, :address, presence: true
-  validates :gender, inclusion: { in: ["Man", "Woman"]}
+  validates :age, :gender, presence: true, if: -> { self.role == 'Player' || self.role == 'Both' }
+  validates :gender, presence: true, if: -> { self.role == 'Player' || self.role == 'Both' }
+  validates :first_name, :last_name, :email, :phone_number, :address, presence: true
+  validates :company_name, presence: true, if: -> { self.organism? }
+  validates :company_type, presence: true, if: -> { self.organism? }
 end

@@ -3,18 +3,114 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+  <div class="form-inputs" data-controller="condition-devise" data-action="change->condition-devise#revealCompany">
+
+    <%= f.input :role, as: :radio_buttons, collection: ["Player", "Organiser", "Both"],
+
+     input_html: { data: { condition_devise_target: "checkbox" } }
+
+      %>
+
+
+
+
+
+
+    <%# <% if    self.role == "Organiser" || self.role == "Both" %>
+
+    <div class="d-none" data-condition-devise-target="company" data-action="change->condition-devise#revealCompany_info">
+      <%= f.input :organism, label:"Do you organise event for an organisation?",
+                  as: :radio_buttons,
+                  collection: ["Yes", "No"],
+                  input_html: { data: { condition_devise_target: "yes" } }%>
+    </div>
+      <%# <%if self.organism? %>
+      <div class="d-none" data-condition-devise-target="company_info">
+        <%= f.input :company_name,
+                  required: true,
+                  autofocus: true %>
+        <%= f.input :role, as: :radio_buttons, collection: ["Private organisation", "A collectivty", "Public association"],
+                  required: true,
+                  autofocus: true %>
+        <%= f.input :address,
+                    required: true,
+                    autofocus: true%>
+        <%= f.input :first_name, label:"First name of the company's contact?",
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :last_name, label:"Last name of the company's contact?",
+                    required: true,
+                    autofocus: true %>
+      </div>
+      <%# <%else %>
+      <div class="d-none" data-condition-devise-target="contact-info">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :address,
+                    required: true,
+                    autofocus: true%>
+      </div>
+      <%# <%end%>
+      <div class="d-none" data-condition-devise-target="info">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :phone_number,
+                  required: true,
+                  autofocus: true%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :photo, as: :file %>
+    <%# </div>
+
+    <%# <%else %>
+      <%# <%= f.input :first_name,
+                    required: true,
+                    autofocus: true %>
+      <%# <%= f.input :last_name,
+                  required: true,
+                  autofocus: true %>
+      <%# <%= f.input :address,
+                  required: true,
+                  autofocus: true%>
+      <%# _<%= f.input :age,
+                  required: true,
+                  autofocus: true%>
+      <%# <%= f.input :gender, collection: ["Man", "Woman"],
+                  required: true,
+                  autofocus: true%>
+      <%# <%= f.input :main_sport,
+                  required: true,
+                  autofocus: true%>
+      <%# <%= f.input :medical_certificate,
+                  required: true,
+                  autofocus: true%>
+      <%# <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%# <%= f.input :phone_number,
+                  required: true,
+                  autofocus: true%>
+      <%# <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%# <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%# <%= f.input :photo, as: :file %> %>
+    <%# <%end %>
   </div>
 
   <div class="form-actions">
