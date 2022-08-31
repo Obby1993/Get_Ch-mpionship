@@ -20,7 +20,6 @@ export default class extends Controller {
     console.log(this.yesTargets);
     this.yesTargets.forEach((item)=>{
         if (item.checked){
-
           if (item.value === "Yes") {
             this.company_infoTarget.classList.remove("d-none");
           }
