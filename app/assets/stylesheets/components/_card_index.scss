@@ -1,0 +1,52 @@
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  width: auto;
+  background: #f6f3ed;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.card-product:hover {
+  margin: 10px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  margin-top: 5px;
+}
+
+.card-product p {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+
+.link-to-show p {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  left: 4px;
+  bottom: 4px;
+  font-size: 13px;
+}
+
+.link-to-show p:hover{
+  font-size: 14px;
+}
