@@ -12,7 +12,6 @@ class User < ApplicationRecord
   validates :age, presence: true, if: -> { self.role == 'Joueur' || self.role == 'Les deux' }
   validates :gender, presence: true, if: -> { self.role == 'Joueur' || self.role == 'Les deux' }
   validates :first_name, :last_name, :email, :phone_number, :address, presence: true
-  validates :gender, inclusion: { in: ["Homme", "Femme"] }
   validates :company_name, presence: true, if: -> { self.organism == "Yes" }
   validates :company_type, presence: true, if: -> { self.organism? == "Yes" }
 

@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :teams, only: [:index, :create, :new]
   end
   resources :teams, only: [:destroy, :edit, :update, :show]  do
-    resources :select_players, only: [:create, :destroy]
+    resources :select_players, only: [:create, :destroy, :new]
   end
 end
