@@ -10,9 +10,9 @@ require "open-uri"
 require 'date'
 
 SelectPlayer.destroy_all
-User.destroy_all
 Team.destroy_all
 Event.destroy_all
+User.destroy_all
 
 user_malik = User.new(email: "malik@gmail.fr",
   password: "password",
@@ -24,8 +24,8 @@ user_malik = User.new(email: "malik@gmail.fr",
   address: "Nice",
   main_sport: "beach volley",
   medical_certificate: true )
-  #photo_malik = URI.open("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
-  #user_malik.photo.attach(io:photo_malik, filename: "profil1.png", content_type: "image/jpg")
+  photo_malik = URI.open("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
+  user_malik.photo.attach(io:photo_malik, filename: "profil1.png", content_type: "image/jpg")
   user_malik.save!
 
 
@@ -78,8 +78,8 @@ user_olivier = User.new(email: "olivier@gmail.fr",
   main_sport: "Beach volley",
   medical_certificate: true
   )
-  #photo_olivier = URI.open("https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg")
-  #user_olivier.photo.attach(io: photo_olivier, filename: "profil2.png", content_type: "image/jpg")
+  photo_olivier = URI.open("https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg")
+  user_olivier.photo.attach(io: photo_olivier, filename: "profil2.png", content_type: "image/jpg")
   user_olivier.save!
 
 user_silvia = User.new(email: "silvia@gmail.fr",
@@ -120,7 +120,7 @@ event_beach = Event.new(event_name: "S2 Nice",
     event_start: Date.today.next_month,
     event_end: Date.today.next_month + 3,
     event_address: "3 Chem. de la Colline Saint-Joseph, 13009 Marseille",
-    event_gender: "Mixed",
+    event_gender: "Mixte",
     deadline_register: Date.today + 14,
     prizemoney: 500.0,
     nb_team: 32,
