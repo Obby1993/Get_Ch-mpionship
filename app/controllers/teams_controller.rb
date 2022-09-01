@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
     @team.event = @event
     if @team.gender == @event.event_gender && @team.nb_player == @event.nb_players_team
       if @team.save!
-        redirect_to event_path(@event)
+        redirect_to new_team_select_player_path(@team)
       else
         render :new, status: :unprocessable_entity
       end

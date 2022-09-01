@@ -1,15 +1,15 @@
 <div class="bg-white rounded p-3 shadow">
 
-        <h2>Inscription à <%=@event.event_name%>
-        <h3>Créer son équipe</h3>
+  <h2>Inscription à <%=@event.event_name%>
+  <h3>Créer son équipe</h3>
 
-        <%= simple_form_for ([@event, @team  ])  do |f| %>
-          <%= f.input :team_name, placeholder: "Nom d'équipe:" %>
-          <%= f.input :nb_player, placeholder: "Nombre de joueur dans l'équipe:" %>
-          <%= f.input :gender,
-          collection: ["Homme", "Femme", "Mixte"] %>
+  <%= simple_form_for ([@event, @team  ])  do |f| %>
+    <%= f.input :team_name, placeholder: "Nom d'équipe:" %>
+    <%= f.input :nb_player, placeholder: "Nombre de joueur dans l'équipe:" %>
+    <%= f.input :gender,
+    collection: ["Homme", "Femme", "Mixte"] %>
 
 
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
-      </div>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>

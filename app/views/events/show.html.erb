@@ -1,4 +1,4 @@
-<% if event.photos.empty? %>
+<% if @event.photos.empty? %>
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(banner-default.png)">
 <% else %>
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=cl_image_path @event.photos.first.key, height: 300, crop: :fill %>')">
