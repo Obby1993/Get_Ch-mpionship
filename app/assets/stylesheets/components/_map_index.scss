@@ -1,8 +1,11 @@
-.map {
+#map {
   width: cover;
   height: 400px;
   margin: 20px;
   border-radius: 20px;
+  a{
+    font-size: 1px;
+  }
 }
 
 .mapboxgl-popup {

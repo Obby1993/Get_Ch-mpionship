@@ -78,8 +78,8 @@ user_olivier = User.new(email: "olivier@gmail.fr",
   main_sport: "Beach volley",
   medical_certificate: true
   )
-  photo_olivier = URI.open("https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg")
-  user_olivier.photo.attach(io: photo_olivier, filename: "profil2.png", content_type: "image/jpg")
+  #photo_olivier = URI.open("https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg")
+  #user_olivier.photo.attach(io: photo_olivier, filename: "profil2.png", content_type: "image/jpg")
   user_olivier.save!
 
 user_silvia = User.new(email: "silvia@gmail.fr",
@@ -93,8 +93,8 @@ user_silvia = User.new(email: "silvia@gmail.fr",
   main_sport: "Roller",
   medical_certificate: false
   )
-  photo_silvia = URI.open("https://www.soladis.com/wp-content/uploads/2017/06/personne-1-1.png")
-  user_silvia.photo.attach(io: photo_silvia, filename: "profil3.png", content_type: "image/png")
+  #photo_silvia = URI.open("https://www.soladis.com/wp-content/uploads/2017/06/personne-1-1.png")
+  #user_silvia.photo.attach(io: photo_silvia, filename: "profil3.png", content_type: "image/png")
   user_silvia.save
 
 event_beach = Event.new(event_name: "S2 Nice",
@@ -113,6 +113,22 @@ event_beach = Event.new(event_name: "S2 Nice",
   photo_event_beach = URI.open("https://static.actu.fr/uploads/2022/05/20220524-142301.jpg")
   event_beach.photos.attach(io: photo_event_beach, filename: "event1.png", content_type: "image/jpg")
   event_beach.save
+
+  event_beach2 = Event.new(event_name: "S4 Marseille",
+    nb_players_team: 4,
+    price_by_player: 20.0,
+    event_start: Date.today.next_month,
+    event_end: Date.today.next_month + 3,
+    event_address: "3 Chem. de la Colline Saint-Joseph, 13009 Marseille",
+    event_gender: "Mixed",
+    deadline_register: Date.today + 14,
+    prizemoney: 500.0,
+    nb_team: 32,
+    user_id: user_malik.id,
+    activity: "Beach Volley"
+  )
+    event_beach2.save!
+
 
 
 event_basket = Event.new( event_name: "Tournoi 3c3 Nice",
