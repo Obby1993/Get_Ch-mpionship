@@ -23,10 +23,14 @@ user_malik = User.new(email: "malik@gmail.fr",
   gender: 'Homme',
   address: "Nice",
   main_sport: "beach volley",
-  medical_certificate: true )
+  medical_certificate: true,
+  role: 'Both',
+  medical_certificate: true,
+  )
   photo_malik = URI.open("https://st.depositphotos.com/1269204/1219/i/450/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg")
   user_malik.photo.attach(io:photo_malik, filename: "profil1.png", content_type: "image/jpg")
   user_malik.save!
+
 
 
  user_nice_ville = User.new(email: "ville_nice@gmail.fr",
@@ -34,10 +38,9 @@ user_malik = User.new(email: "malik@gmail.fr",
   first_name: "Nice Ville",
   last_name: 'La mairie',
   phone_number: '0609080701',
-  age: 1,
-  gender: 'Homme',
   address: "5 Rue de l'Hôtel de ville, 06000 Nice",
   main_sport: "multi-sport",
+  role: 'Organiser'
   )
 user_nice_ville.save
 
@@ -47,10 +50,9 @@ user_cagnes_petanque = User.new(email: "cagnes_petanque@gmail.fr",
   first_name: "Cagnes",
   last_name: 'Pétanque',
   phone_number: '0609080702',
-  age: 1,
-  gender: 'Homme',
   address: "5 Pl. Saint-Pierre, 06800 Cagnes-sur-Mer",
   main_sport: "Petanque",
+  role: 'Organiser'
   )
 user_cagnes_petanque.save!
 
@@ -60,10 +62,9 @@ user_monaco_ville = User.new(email: "monaco_ville@gmail.fr",
   first_name: "Monaco",
   last_name: 'Ville',
   phone_number: '0609080703',
-  age: 1,
-  gender: 'Homme',
   address: "Pl. de la Mairie, 98000 Monaco",
   main_sport: "multi-sport",
+  role: 'Organiser'
   )
 user_monaco_ville.save!
 
@@ -76,7 +77,8 @@ user_olivier = User.new(email: "olivier@gmail.fr",
   gender: 'Homme',
   address: "337 chemin de cremat 06200 Nice",
   main_sport: "Beach volley",
-  medical_certificate: true
+  medical_certificate: true,
+  role: 'Both'
   )
   photo_olivier = URI.open("https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg")
   user_olivier.photo.attach(io: photo_olivier, filename: "profil2.png", content_type: "image/jpg")
@@ -91,7 +93,8 @@ user_silvia = User.new(email: "silvia@gmail.fr",
   gender: 'Femme',
   address: "avenue de la qualifornie 06000 Nice",
   main_sport: "Roller",
-  medical_certificate: false
+  medical_certificate: false,
+  role: 'Player'
   )
   #photo_silvia = URI.open("https://www.soladis.com/wp-content/uploads/2017/06/personne-1-1.png")
   #user_silvia.photo.attach(io: photo_silvia, filename: "profil3.png", content_type: "image/png")
