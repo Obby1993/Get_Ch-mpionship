@@ -5,6 +5,6 @@ class Team < ApplicationRecord
 
   validates :team_name, :gender, :nb_player, presence: true
   validates :nb_player, length: { minimum: 1 }
-  validates :gender, uniqueness: ["Men", "Women", "mixed"]
+  validates :gender, inclusion: { in: ["Homme", "Femme", "Mixte"] }
 
 end

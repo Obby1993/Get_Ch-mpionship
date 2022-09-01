@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   validates :first_name, :last_name, :email, :phone_number, :age, :gender, :address, presence: true
-  validates :gender, inclusion: { in: ["Man", "Woman"]}
+  validates :gender, inclusion: { in: ["Homme", "Femme"] }
 end

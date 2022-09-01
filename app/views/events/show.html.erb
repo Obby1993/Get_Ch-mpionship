@@ -30,7 +30,7 @@
     <div class="equipes">
       <ul>
         <li><p><span>Equipes</span></p><p><span>Date d'inscription</span></p></li>
-      <%@teams.each do |team| %>
+      <%@event.teams.each do |team| %>
         <li><p><%=team.team_name%></p><p><%=team.created_at%></p></li>
       <%end%>
     </div>
