@@ -1,7 +1,7 @@
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%=cl_image_path @event.photos.first.key, height: 300, crop: :fill %>')">
   <div class="text-banner">
     <h1><%=@event.event_name%></h1>
-    <%= link_to "Participer", new_event_team_path(@event), class:"btn"%>
+    <%= link_to "Participer", new_event_team_path(@event), class:"btn-show"%>
       <div class="cloture">
         <h3>Cloture des inscriptions:</h3>
         <div class="time"></div>
@@ -42,7 +42,7 @@
         <li>Adresse: <span><%=@event.event_address%></span>  </li>
         <li>Début: <span><%=@event.event_start%></span> </li>
         <li>Fin: <span><%=@event.event_end%></span> </li>
-        <%if @event.user.organism == "Yes"%>
+        <%if @event.user.organism == "Oui"%>
           <li>Organisateur: <span><%event.user.company_name%></span></li>
           <li> Contact: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
         <%else%>

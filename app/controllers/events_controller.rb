@@ -2,9 +2,16 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
-
-  # The `geocoded` scope filters only flats with coordinates
+    if params[:query].present?
+      @events = Event.where("activity ILIKE ?", "%#{params[:query]}%")
+      if params[:event_address].present?
+        @events = @events.where("event_address ILIKE ?", "%#{params[:event_address]}%")
+      end
+    elsif params[:event_address].present?
+      @events = Event.where("event_address ILIKE ?", "%#{params[:event_address]}%")
+    else
+      @events = Event.all
+    end
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,

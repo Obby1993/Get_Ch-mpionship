@@ -6,9 +6,21 @@
       <div class="d-flex flex-column" id="searchBox">
         <h3>trouver un tournoi dans votre région</h3>
         <div id = "searchbox" class="form col-xs-12">
-          <input class="col-xs-9" id="searchBar" type="text" placeholder="Ville, département, région"/>
-          <input class="col-xs-9" id="searchBar" type="text" placeholder="activité recherchée"/>
-          <button type="button" class="btn btn-dark">search</button>
+          <%= form_with url: events_path, method: :get, class: "d-flex", id: "searchBox" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                id: "searchBar",
+                placeholder: "Activité Recherchée"
+            %>
+            <%= text_field_tag :event_address,
+                params[:event_address],
+                class: "form-control",
+                id: "searchBar",
+                placeholder: "Ville, département, région"
+            %>
+             <%= submit_tag "Search", class: "btn btn-dark" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -19,7 +31,7 @@
     </div>
     <div class = "cards-index">
        <div style="margin-top:50px; margin-left:40px;">
-         <h1><strong>Liste de tous les événements</strong></h1>
+         <h1 id = "index-black"><strong>Liste de tous les événements</strong></h1>
         </div>
         <div class ="cards">
           <% @events.each do |event| %>
