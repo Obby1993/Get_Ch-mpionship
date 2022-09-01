@@ -23,7 +23,6 @@ user_malik = User.new(email: "malik@gmail.fr",
   gender: 'Homme',
   address: "Nice",
   main_sport: "beach volley",
-  medical_certificate: true,
   role: 'Both',
   medical_certificate: true,
   )

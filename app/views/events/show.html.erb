@@ -1,7 +1,7 @@
-<% if event.photos.empty? %>
+<% if @event.photos.empty? %>
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(banner-default.png)">
 <% else %>
-<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=cl_image_path @event.photos.first.key, height: 300, crop: :fill %>')">
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%=cl_image_path @event.photos.first.key, height: 300, crop: :fill %>')">
 <% end %>
   <div class="text-banner">
     <h1><%=@event.event_name%></h1>
@@ -20,40 +20,60 @@
 
 <h3>Détails de l'événement</h3>
 <div class="informations-sport">
-  <div class="information">
+  <div class="information-org">
+    <h2>Organisateur</h2>
     <ul>
-      <li>Activité:     <span><%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%></span> </li>
+      <%if @event.user.organism == "Oui"%>
+          <li><span><%event.user.company_name%></span></li>
+          <li> Contact: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
+        <%else%>
+          <li><span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
+        <%end%>
+          <li>
+            <% if @event.user.photo.key? %>
+              <%= cl_image_tag @event.user.photo.key, width: 200 %>
+            <% else %>
+              <%= image_tag "default.png", width: 200 %>
+            <% end %> </li>
+          <li>Numéro: <span><%=@event.user.phone_number%></span></li>
+          <li>Email: <span><%=@event.user.email%></span></li>
+    </ul>
+  </div>
+  <div class="information-event">
+    <ul>
+      <li>Activité:<span><%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%></span> </li>
       <li>Genre: <span><%=@event.event_gender%></span> </li>
       <li>Nombre d'équipe: <span><%=@event.nb_team%></span> </li>
       <li>Prize Money total: <span><%=@event.prizemoney%>€</span> </li>
       <li>Prix d'inscription: <span><%=@event.price_by_player%>€ par joueur </span></li>
     </ul>
   </div>
-  <div class="inscription">
-    <h4 class="h">Equipes inscrites<h4>
-    <div class="equipes">
-      <ul>
-        <li><p><span>Equipes</span></p><p><span>Date d'inscription</span></p></li>
-      <%@event.teams.each do |team| %>
-        <li><p><%=team.team_name%></p><p><%=team.created_at%></p></li>
-      <%end%>
-    </div>
-  </div>
 </div>
+
+ <div class="inscription">
+    <h4>Equipes inscrites<h4>
+    <table id="equipes">
+      <tr>
+        <th>Equipes</th>
+        <th>Date d'inscription</th>
+      </tr>
+      <%@event.teams.each do |team| %>
+      <tr>
+        <td><%=team.team_name%></td>
+        <td><%=team.created_at%></td>
+      </tr>
+      <%end%>
+  </table>
+  </div>
+
+
+
   <div class="d-flex" id ="orga-map">
-    <div class="informations-orga">
+    <div class="informations-ta">
       <ul>
-        <li>Adresse: <span><%=@event.event_address%></span>  </li>
+        <li>Adresse: <span><%=@event.event_address%></span></li>
         <li>Début: <span><%=@event.event_start%></span> </li>
         <li>Fin: <span><%=@event.event_end%></span> </li>
-        <%if @event.user.organism == "Oui"%>
-          <li>Organisateur: <span><%event.user.company_name%></span></li>
-          <li> Contact: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
-        <%else%>
-          <li>Organisateur: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span>  </li>
-        <%end%>
-          <li>Numéro: <span><%=@event.user.phone_number%></span></li>
-          <li>Email: <span><%=@event.user.email%></span></li>
       </ul>
     </div>
     <div class= "map"
@@ -62,8 +82,4 @@
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
   </div>
-</div>
-
-<div class="information">
-
 </div>
