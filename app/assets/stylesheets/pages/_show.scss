@@ -1,0 +1,149 @@
+@import "components/navbar";
+@import "components/footer";
+
+.banner-show {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+
+}
+.text-banner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: auto;
+}
+
+h1 {margin-bottom : 40px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-show {
+  margin-bottom: 40px;
+  font-size: 35px;
+  color: rgb(0, 0, 0);
+  border: solid;
+  border-color: rgb(0, 0, 0);
+  background-color: #ededed;
+  opacity: 0.7;
+  border-radius: 12px;
+}
+
+.cloture {
+  text-align: center;
+  color: antiquewhite;
+}
+
+
+h3 {margin: auto;
+margin-top: 50px;
+margin-bottom: 50px;}
+
+
+
+.informations-sport {
+  margin: auto;
+  background-color: #ededed;
+  width: 90%;
+  margin: auto;
+  padding: 50px;
+  padding-top: 50px;
+  border-radius: 16px;
+  margin-bottom: 50px;
+  display: flex;
+  // justify-content: space-between;
+
+}
+
+.information {
+  width: 50%;
+  ul{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.inscription {
+  width: 50%;
+  text-align: center;
+}
+.equipes {
+  border-top: solid;
+  width: 500px;
+  margin: auto;
+  ul{border:none;
+  padding: 0;}
+  li {display: flex;
+    text-decoration: none;
+    border-bottom: solid;
+    border-left: solid;
+    width: 100%;
+    p{
+      border-right:solid;
+      padding: 4px;
+      width: 50%;
+      text-align: center;
+      background-color: #fff9f9;
+      margin: 0;
+    }
+  }
+}
+.h {margin-bottom: 16px;}
+// ul{
+//   height: 400px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+// }
+li {
+  font-size: 16px;
+}
+
+#orga-map{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: auto;
+  margin-bottom: 50px;
+  height: 400px;
+  ul{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.informations-orga{
+  width: 48%;
+  border-radius: 16px;
+  padding: 50px;
+  padding-top: 50px;
+  border-radius: 16px;
+  background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.map {
+  width: 48%;
+  background-color: aqua;
+  border-radius: 16px;
+  margin: 0;
+
+}
+
+span{
+  font-weight: bolder;
+}
