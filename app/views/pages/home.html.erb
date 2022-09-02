@@ -30,10 +30,25 @@
 
 <div class = "logged-in">
    <% if user_signed_in? %>
-            <p> another div here</p>
-            <%end%>
-        </li>
+        <% unless @events.empty? %>
+        <h2 id = "logged-in-title">Mes événements</h2>
+        <% @events.each do |event| %>
+          <div class = "card-home">
+           <%= cl_image_tag event.photos.first.key%>
+            <div class = "card-home-info">
+                <h2> Name: <%= event.event_name%></h2>
+                <p> Address: <%= event.event_address%></p>
+                <p>Début: <span><%= event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= event.event_end.strftime("%d/%m/%Y")%></span></p>
+            </div>
+            <div class = "card-home-link">
+                <p id ="event-link"> <%= link_to event_path(event), class: "home-link-to-show" do %> détails <%end %></p>
+            </div>
+          </div>
+          <%end%>
+        <%end%>
+    <%end%>
 </div>
+
 
 <div class="cards">
 
