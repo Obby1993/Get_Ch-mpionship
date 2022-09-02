@@ -1,0 +1,20 @@
+<%# <h2><%=@event.event_name%>
+
+ <div class="new_player">
+  <h3>Ajoute tes joueurs</h3>
+  <%(0..@team.nb_player-1).each do |elem|%>
+    <div class="form" data-controller="form-by-player">
+
+    <%=simple_form_for ([@team, @select_player]),
+             data: { form_by_player_target: "form_player"}%>
+          <%= f.input :user_id, collection: User.all.sort%>
+          <div class="form-actions">
+            <%= f.button :submit, "inviter", data-action= "submit->form-by-player#create"%>
+          </div>
+  <%end%>
+  </div>
+</div>
+
+<div class="team">
+<h3>Votre équipe<h3>
+</div>

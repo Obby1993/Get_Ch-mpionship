@@ -1,0 +1,6 @@
+<%=simple_form_for ([@team, @select_player]),  html: {
+             data: {
+        form_by_player_target: "form_player",
+        action: "submit->form-by-player#create"
+      }
+    } do |f| %>
