@@ -180,27 +180,6 @@ li {
 }
 
 
-.map {
-  width: 70%;
-  background-color: aqua;
-  border-radius: 16px;
-  margin: 0;
-  .mapboxgl-popup {
-    max-width: 200px;
-  }
-
-  .mapboxgl-popup-content {
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-  }
-
-  .marker {
-    background-image: url("pointer.png");
-    background-size: contain;
-    width: 35px;
-    height: 35px;
-  }
-}
 
 span{
   font-weight: bolder;
