@@ -25,10 +25,12 @@ class EventsController < ApplicationController
   def show
     @teams = Team.where(event_id: params[:id])
     @event_map = Event.where(id: params[:id])
-    @markers = @event_map.geocoded.map do |e|
+    @markers = @event_map.geocoded.map do |event|
       {
-        lat: e.latitude,
-        lng: e.longitude
+        lat: event.latitude,
+        lng: event.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {event: event}),
+        image_url: helpers.asset_url("pointer.png")
       }
     end
   end

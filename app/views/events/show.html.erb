@@ -76,7 +76,7 @@
         <li>Fin: <span><%=@event.event_end.strftime("%d/%m/%Y")%></span> </li>
       </ul>
     </div>
-    <div class= "map"
+    <div id= "map2"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
