@@ -8,7 +8,7 @@
     <%= link_to "Participer", new_event_team_path(@event), class:"btn-show"%>
       <div class="cloture">
         <h3>Cloture des inscriptions:</h3>
-        <div class="time"></div>
+        <div id="time"></div>
         <span id="countdown_day" >--</span> jours
         <span id="countdown_hour">--</span> heures
         <span id="countdown_min" >--</span> minutes
@@ -60,7 +60,7 @@
       <%@event.teams.each do |team| %>
       <tr>
         <td><%=team.team_name%></td>
-        <td><%=team.created_at%></td>
+        <td><%=team.created_at.strftime("%d/%m/%Y-%k:%M")%></td>
       </tr>
       <%end%>
   </table>
@@ -72,8 +72,8 @@
     <div class="informations-ta">
       <ul>
         <li>Adresse: <span><%=@event.event_address%></span></li>
-        <li>Début: <span><%=@event.event_start%></span> </li>
-        <li>Fin: <span><%=@event.event_end%></span> </li>
+        <li>Début: <span><%=@event.event_start.strftime("%d/%m/%Y")%></span> </li>
+        <li>Fin: <span><%=@event.event_end.strftime("%d/%m/%Y")%></span> </li>
       </ul>
     </div>
     <div class= "map"

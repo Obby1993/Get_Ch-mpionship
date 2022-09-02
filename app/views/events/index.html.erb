@@ -45,7 +45,7 @@
                 <div>
                   <h2> <%= event.event_name %>, <%= event.activity %></h2>
                   <p>  <%= event.event_address %></p>
-                  <p> Date: de <%= event.event_start %> à <%= event.event_end %></p>
+                  <p> Date: de <%= event.event_start.strftime("%d-%m-%Y") %> à <%= event.event_end.strftime("%d-%m-%Y") %></p>
                 </div>
                 <%=  link_to event_path(event), class: "link-to-show" do%>
                   <p class = "card-product-details"> détails</p>
