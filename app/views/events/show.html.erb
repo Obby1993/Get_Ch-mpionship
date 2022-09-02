@@ -53,11 +53,15 @@
       <tr>
         <th>Equipes</th>
         <th>Date d'inscription</th>
+        <th></th>
       </tr>
       <%@event.teams.each do |team| %>
       <tr>
         <td><%=team.team_name%></td>
         <td><%=team.created_at.strftime("%d/%m/%Y-%k:%M")%></td>
+        <% if current_user == @event.user %>
+        <td><small><%= link_to "delete", event_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this team?"}, class: 'text-danger' %></small></td>
+        <% end %>
       </tr>
       <%end%>
   </table>
