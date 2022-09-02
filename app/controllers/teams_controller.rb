@@ -21,6 +21,24 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:event_id])
+    @team = Team.find(params[:team_id])
+  end
+
+  def update
+    @event = Event.find(params[:event_id])
+    @team = Team.find(params[:team_id])
+    @team.update(params_team)
+    # No need for app/views/restaurants/update.html.erb
+    redirect_to event_path(@event)
+  end
+
+  def destroy
+    @team.destroy
+    redirect_to event_path, status: :see_other
+  end
+
   private
 
   def params_team
