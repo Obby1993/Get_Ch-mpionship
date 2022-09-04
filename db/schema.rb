@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_193502) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_04_145401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_193502) do
     t.date "event_end"
     t.string "event_address"
     t.string "event_gender"
-    t.date "deadline_register"
+    t.datetime "deadline_register", precision: nil
     t.float "prizemoney"
     t.integer "nb_team"
     t.bigint "user_id", null: false
