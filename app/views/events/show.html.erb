@@ -7,6 +7,28 @@
     <h1><%=@event.event_name%></h1>
     <%= link_to "Participer", new_event_team_path(@event), class:"btn-show"%>
 
+    <div id="clockdiv" data-controller="countdown">
+        <h2>date limite d'inscription:</h2>
+        <p data-countdown-target = "endtime"><%= @event.deadline_register %></p>
+          <div class = "countdown">
+            <div class ="container-days">
+              <h3 data-countdown-target = "days"><%= t(".days") %></h3>
+              <h3>Days</h3>
+            </div>
+            <div class ="container-hours">
+              <h3 data-countdown-target = "hours"><%= t(".hours") %></h3>
+              <h3>Hours</h3>
+            </div>
+            <div class ="container-minutes">
+              <h3 data-countdown-target = "minutes"><%= t(".minutes") %></h3>
+              <h3>Minutes</h3>
+            </div>
+            <div class ="container-seconds">
+              <h3 data-countdown-target = "seconds"><%= t(".seconds") %></h3>
+              <h3>Seconds</h3>
+            </div>
+    </div>
+</div>
 
 
 
