@@ -9,23 +9,23 @@
 
     <div id="clockdiv">
         <h2>date limite d'inscription:</h2>
-        <p data-countdown-target = "endtime" id = "endtime"><%= @event.deadline_register %></p>
+        <p id = "endtime" class = "d-none"><%= @event.deadline_register %></p>
           <div class = "countdown">
             <div class ="container-days">
               <span class="days"></span>
-              <div class="smalltext"><%= t(".days") %></div>
+              <div class="smalltext"><%= t(".jours") %></div>
             </div>
             <div class ="container-hours">
               <span class="hours"></span>
-              <div class="smalltext"><%= t(".hours") %></div>
+              <div class="smalltext"><%= t(".heures") %></div>
             </div>
             <div class ="container-minutes">
               <span class="minutes"></span>
-              <div class="smalltext"><%= t(".minutes") %></div>
+              <div class="smalltext"><%= t(".min") %></div>
             </div>
             <div class ="container-seconds">
               <span class="seconds"></span>
-              <div class="smalltext"><%= t(".seconds") %></div>
+              <div class="smalltext"><%= t(".sec") %></div>
             </div>
     </div>
 </div>

@@ -21,8 +21,21 @@
   text-align: center;
   margin-bottom: 20px;
 
-  .day, .hour, .minute, .second{
-    font-size: 20px;
+  .container-days, .container-hours, .container-minutes, .container-seconds{
+    padding: 10px;
+    margin: 5px;
+    background-color:rgba(11, 11, 11, 0.489) ;
+    border-radius: 5px;
   }
 
+}
+
+span {
+  font-size: 20px;
+  color: white;
+}
+
+span.days, span.hours, span.minutes, span.seconds {
+  font-size: 50px;
+  color: white;
 }
