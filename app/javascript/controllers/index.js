@@ -7,8 +7,6 @@ import { application } from "./application"
 import ConditionDeviseController from "./condition_devise_controller"
 application.register("condition-devise", ConditionDeviseController)
 
-import CountdownController from "./countdown_controller"
-application.register("countdown", CountdownController)
 
 import FormByPlayerController from "./form_by_player_controller"
 application.register("form-by-player", FormByPlayerController)
