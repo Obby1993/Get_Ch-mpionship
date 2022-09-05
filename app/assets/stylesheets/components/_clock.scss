@@ -6,7 +6,7 @@
   background-color: rgba(255, 255, 255, 0.411);
   padding: 8px 55px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 
   h2{
     font-size: 25px;
@@ -30,12 +30,12 @@
 
 }
 
-span {
-  font-size: 20px;
+span.days, span.hours, span.minutes, span.seconds {
+  font-size: 50px;
   color: white;
 }
 
-span.days, span.hours, span.minutes, span.seconds {
-  font-size: 50px;
+span.translation_missing {
+  font-size: 20px;
   color: white;
 }

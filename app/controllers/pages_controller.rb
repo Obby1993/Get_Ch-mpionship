@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @events = Event.where(user: current_user)
+    @user = User.where(user: current_user)
   end
 end

@@ -1,0 +1,23 @@
+<div class = "profile-container">
+ <div class = "profile-top">
+   <div class="user-info">
+    <h2>profile</h2>
+    <ul>
+          <li><span><%@user.last_name.capitalize%> <%@user.first_name.capitalize%></span></li>
+          <li>
+            <% if @user.photo.key? %>
+              <%= cl_image_tag @user.photo.key, width: 200 %>
+            <% else %>
+              <%= image_tag "default.png", width: 200 %>
+            <% end %> </li>
+          <li>Numéro: <span><%=@user.phone_number%></span></li>
+          <li>Email: <span><%=@user.email%></span></li>
+    </ul>
+  </div>
+ </div>
+
+ <div class = "profile-bottom">
+ </div>
+
+
+</div>
