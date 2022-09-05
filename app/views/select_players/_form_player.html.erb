@@ -1,13 +1,9 @@
-<div class="form" data-controller="form-by-player">
-
-
   <%=simple_form_for([team, SelectPlayer.new],
-      html:{ data: { form_by_player_target: "form", action: "submit->form-by-player#create" } }) do |f|%>
-    <%= f.association :user,
+      html:{ data: { form_by_player_target: "form", action: "submit->form-by-player#create" }, class: "form-user" }) do |f|%>
+    <%= f.association :user, label: "Trouve tes coéquipiers",
     collection: User.all, :label_method => :fullname, :value_method => :id,
     input_html:{ data: { form_by_player_target: "user" } }%>
     <div class="form-actions">
-      <%= f.submit "inviter"%>
+      <%= f.submit "Inviter", class: "btn-add" %>
     </div>
   <%end%>
-</div>
