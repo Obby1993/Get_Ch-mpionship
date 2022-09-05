@@ -1,0 +1,72 @@
+@import "components/navbar";
+@import "components/footer";
+
+h1 {
+  margin-bottom : 30px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+
+}
+#titre {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+
+.text-banner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: auto;
+}
+
+.banner-show {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.page_selection {
+  display: flex;
+  justify-content: space-around;
+  min-height: 400px;
+  align-items: center;
+}
+
+.new_player {
+  display: flex;
+  width: 30%;
+
+}
+
+.team {
+  width: 40%;
+}
+
+.form-user{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn-add {
+  padding: 15px;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+  border: solid;
+  border-color: rgb(0, 0, 0);
+  background-color: #ededed;
+  opacity: 0.7;
+  border-radius: 10px;
+}
+
+.btn-add:hover {
+  background-color: #653939;
+}

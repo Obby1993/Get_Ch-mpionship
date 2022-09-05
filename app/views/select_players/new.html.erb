@@ -1,23 +1,36 @@
-<h2><%=@team.event.event_name%></h2>
+<% if @team.event.photos.empty? %>
+  <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(banner-default.png)">
+<% else %>
+  <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%=cl_image_path @team.event.photos.first.key, height: 300, crop: :fill %>')">
+<% end %>
+  <div class="text-banner">
+  <h1><%=@team.event.event_name%></h1>
 
-<div class="new_player">
-  <h3>Ajoute tes joueurs</h3>
-
-  <%(0..@team.nb_player-1).each do |elem|%>
-    <%= render "select_players/form_player", select_player: @select_player, team: @team%>
-  <%end%>
-</div>
-
-<div class="team">
-<h3>Equipe: <%=@team.team_name%><h3>
-<%if @select_player%>
-  <%# <%raise%>
-<%end%>
-<ul>
-  <%# <%@team.select_player.each do |player|%>
-  <%# <li>Joueur : <%=player.first_name</li>%>
-    <%# <li>Joueur <%=((0..@team.nb_player-1).index(player) + 1) :<li>%>
-  <%# <%end%>
+  </div>
+  </div>
 
 
+
+
+    <h2 id= "titre">Ajoute tes joueurs</h2>
+<div class="page_selection" data-controller="form-by-player" >
+  <div class="new_player">
+
+    <%# <%(0..@team.nb_player-1).each do |elem|%>
+      <%= render "select_players/form_player", select_player: @select_player, team: @team%>
+    <%# <%end%>
+  </div>
+
+  <div class="team">
+    <h3>Equipe: <%=@team.team_name%><h3>
+
+
+    <ul data-form-by-player-target = "affiche" >
+      <%# <%@team.select_player.each do |player|%>
+      <%# <li>Joueur : <%=player.first_name</li>%>
+        <%# <li>Joueur <%=((0..@team.nb_player-1).index(player) + 1) :<li>%>
+      <%# <%end%>
+    </ul>
+
+  </div>
 </div>
