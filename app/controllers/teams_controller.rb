@@ -44,4 +44,5 @@ class TeamsController < ApplicationController
   def params_team
     params.require(:team).permit(:team_name, :nb_player, :gender)
   end
+
 end
