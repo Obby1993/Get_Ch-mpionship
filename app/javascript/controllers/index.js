@@ -7,12 +7,14 @@ import { application } from "./application"
 import ConditionDeviseController from "./condition_devise_controller"
 application.register("condition-devise", ConditionDeviseController)
 
-
 import FormByPlayerController from "./form_by_player_controller"
 application.register("form-by-player", FormByPlayerController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
