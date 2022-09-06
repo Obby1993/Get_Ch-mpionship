@@ -23,7 +23,7 @@
       <div class = "organized-events-cont">
         <div class = "organized-events">
             <% unless @events.empty? %>
-            <h2 id = "logged-in-title">J'organize</h2>
+            <h2 id = "logged-in-title">J'organise</h2>
             <% @events.each do |event| %>
               <div class = "card-home">
               <% if event.photos.empty? %>
@@ -50,7 +50,7 @@
 
       <div class = "partecip-events-cont">
         <div class = "partecip-events">
-            <h2 id = "logged-in-title">Je partecipe</h2>
+            <h2 id = "logged-in-title">Je participe</h2>
             <% @user.teams.each do |team| %>
               <div class = "card-home">
                 <% if team.event.photos.empty? %>
@@ -77,20 +77,23 @@
   </div>
 
  <div class = "profile-reviews">
-  <h2>laissez un commentaire</h2>
+  <h2>Laissez un commentaire</h2>
     <div data-controller="insert-in-list">
       <div data-insert-in-list-target="items">
       </div>
-      <%= simple_form_for([ @user, @review ],
-                    data: {
-                      insert_in_list_target: "form",
-                      action: "submit->insert-in-list#send"
-                    }) do |f| %>
-      <%= f.input :content, as: :text %>
-      <%= f.button :submit %>
+      <%= render "reviews/form", review: @review, user: @user%>
+    </div>
+
+
+    <div>
+      <% if @user.reviews.blank? %>
+        Soyez le premier à laisser un avis pour <%= @user.first_name %>
+      <% else %>
+        <% @user.reviews.each do |review| %>
+          <%= render "review", review: review, user: @user, reviewer: @reviewer%>
+        <% end %>
       <% end %>
     </div>
  </div>
-
 
 </div>
