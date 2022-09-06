@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="form-by-player"
 export default class extends Controller {
-  static targets = ["form", "user", "affiche"]
+  static targets = ["form", "user", "affiche", "no"]
   static values = { nbPlayer: Number,
     selectPlayerIds: Array }
 
@@ -36,6 +36,7 @@ export default class extends Controller {
         console.log("olee")
         this.listTeam.push(this.userTarget.options[this.userTarget.options.selectedIndex].textContent);
         console.log(this.listTeam.length);
+        // console.log(this.noTarget)
         this.afficheTarget.insertAdjacentHTML("beforeend", equipier);
         this.userTarget.value =""
       };
@@ -43,7 +44,4 @@ export default class extends Controller {
 
   }
 
-  delete(event) {
-
-  }
 }
