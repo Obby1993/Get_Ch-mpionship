@@ -1,9 +1,11 @@
 <div class = "container-review">
   <div class = "content">
+    <p><i class="fa-solid fa-quote-left"></i> </p>
     <p><%= review.content %></p>
+    <p> <i class="fa-solid fa-quote-right"></i></p>
   </div>
   <div class = "details">
     <p><%= review.reviewer %></p>
-    <p><%= review.created_at %></p>
+    <p><%= review.created_at.strftime("%d/%m/%Y-%k:%M") %></p>
   </div>
 </div>

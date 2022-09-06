@@ -77,13 +77,36 @@
   color: rgba(0, 0, 0, 0.975);
 }
 
+.profile-reviews{
+  border: thick double #ccdee6;
+}
+
 .container-review {
-  background-color: #8f8b8b;
+  padding: 3px;
+  margin: 3px;
+  background-color: #c5b9b9ad;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   display: flex;
+  justify-content: space-between;
+
+  .details{
+    padding: 2px;
+    margin: 3px;
+  }
 
   .details > p {
     font-size: 10px;
     font-weight: bold;
   }
+  .content {
+    display: flex;
+    padding: 2px;
+    margin: 3px;
+  }
+  .content > p {
+    margin: 3px;
+  }
+}
+.container-review:hover {
+  background-color: #af8c8cfd;
 }
