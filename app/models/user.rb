@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :select_players, dependent: :destroy
   has_many :teams, through: :select_players
   has_many :events, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
   validates :age, presence: true, if: -> { self.role == 'Joueur' || self.role == 'Les deux' }

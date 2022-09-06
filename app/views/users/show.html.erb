@@ -18,37 +18,65 @@
             <%end %>
       </ul>
     </div>
-    <div class = "user-organized-events">
-          <% unless @events.empty? %>
-          <h2 id = "logged-in-title">J'organize</h2>
-          <% @events.each do |event| %>
-            <div class = "card-home">
-            <% if event.photos.empty? %>
-                    <%= image_tag "event-default.png"%>
-                  <% else %>
-                    <%= cl_image_tag event.photos.first.key%>
-                  <% end %>
-              <div class = "card-home-info">
-                  <h2> Name: <%= event.event_name%></h2>
-                  <p> Address: <%= event.event_address%></p>
-                  <p> Début: <span><%= event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= event.event_end.strftime("%d/%m/%Y")%></span></p>
+
+    <div class = container-events>
+      <div class = "organized-events-cont">
+        <div class = "organized-events">
+            <% unless @events.empty? %>
+            <h2 id = "logged-in-title">J'organize</h2>
+            <% @events.each do |event| %>
+              <div class = "card-home">
+              <% if event.photos.empty? %>
+                      <%= image_tag "event-default.png"%>
+                    <% else %>
+                      <%= cl_image_tag event.photos.first.key%>
+                    <% end %>
+                <div class = "card-home-info">
+                    <h2> Name: <%= event.event_name%></h2>
+                    <p> Address: <%= event.event_address%></p>
+                    <p> Début: <span><%= event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= event.event_end.strftime("%d/%m/%Y")%></span></p>
+                </div>
+                <div class = "card-home-link">
+                    <p id ="event-link"> <%= link_to event_path(event), class: "home-link-to-show" do %> détails <%end %></p>
+                </div>
               </div>
-              <div class = "card-home-link">
-                  <p id ="event-link"> <%= link_to event_path(event), class: "home-link-to-show" do %> détails <%end %></p>
-              </div>
-            </div>
+              <%end%>
             <%end%>
-          <%end%>
-    </div>
-    </div>
+        </div>
+        <div class = "organized-events-notif">
+        <h2>Notification</h2>
+        </div>
+      </div>
 
-    <div class = "user-partecip-events">
-    </div>
-
+      <div class = "partecip-events-cont">
+        <div class = "partecip-events">
+            <h2 id = "logged-in-title">Je partecipe</h2>
+            <% @user.teams.each do |team| %>
+              <div class = "card-home">
+                <% if team.event.photos.empty? %>
+                      <%= image_tag "event-default.png"%>
+                    <% else %>
+                      <%= cl_image_tag team.event.photos.first.key%>
+                    <% end %>
+                <div class = "card-home-info">
+                    <h2> Name: <%= team.event.event_name%></h2>
+                    <p> Address: <%= team.event.event_address%></p>
+                    <p> Début: <span><%= team.event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= team.event.event_end.strftime("%d/%m/%Y")%></span></p>
+                </div>
+                <div class = "card-home-link">
+                    <p id ="event-link"> <%= link_to event_path(team.event), class: "home-link-to-show" do %> détails <%end %></p>
+                </div>
+              </div>
+              <%end%>
+        </div>
+        <div class = "partecip-events-notif">
+          <h2>Notification</h2>
+        </div>
+      </div>
     </div>
   </div>
 
- <div class = "profile-bottom">
+ <div class = "profile-reviews">
  </div>
 
 

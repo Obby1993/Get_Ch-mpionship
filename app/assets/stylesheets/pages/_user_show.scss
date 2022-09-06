@@ -7,21 +7,28 @@
 .profile-top{
   display: flex;
   width: 90%;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.user-organized-events{
-  background-color: beige;
+.container-events{
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 80%;
 }
 
-.user-partecip-events{
-  background-color: beige;
+.organized-events-cont, .partecip-events-cont{
   display: flex;
-  flex-direction: column;
-  width: 40%;
 }
+.organized-events, .partecip-events {
+  width: 70%;
+}
+
+.organized-events-notif, .partecip-events-notif {
+  background-color: beige;
+  width: 30%;
+}
+
 
 
 .user-info{
