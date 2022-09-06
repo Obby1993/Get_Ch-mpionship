@@ -54,6 +54,7 @@
     </div>
 
     <div class = "partecip-home">
+            <% if user_signed_in? %>
             <h2 id = "logged-in-title">Je participe</h2>
             <% current_user.teams.each do |team| %>
               <div class = "card-home">
@@ -72,6 +73,7 @@
                 </div>
               </div>
               <%end%>
+            <%end%>
         </div>
 </div>
 
