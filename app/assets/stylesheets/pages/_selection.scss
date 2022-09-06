@@ -36,24 +36,55 @@ h1 {
 .page_selection {
   display: flex;
   justify-content: space-around;
-  min-height: 400px;
+  min-height: 300px;
   align-items: center;
+  width: 90%;
+  margin: auto;
 }
 
 .new_player {
   display: flex;
   width: 30%;
+  background-color: #ccdee6;
+  border-radius: 16px;
+  // margin-right: 20px;
+  height: auto;
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  align-items: center;
+  justify-content: center;
 
 }
 
 .team {
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+#equipe-titre {
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.li-joueur {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  position: relative;
+ }
+
+.joueur {
+  text-decoration: none;
+  padding-right: 10px;
 }
 
 .form-user{
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
 }
 
 .btn-add {
@@ -65,8 +96,23 @@ h1 {
   background-color: #ededed;
   opacity: 0.7;
   border-radius: 10px;
+  margin-left: 15px;
+
 }
 
 .btn-add:hover {
   background-color: #653939;
+}
+
+.validation {
+  width: 20%;
+}
+
+.icon-none {
+  color: rgb(115, 30, 30);
+}
+
+.fa-solid fa-trash-can {
+position: absolute;
+left: 5px;
 }
