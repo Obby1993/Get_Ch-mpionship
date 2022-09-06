@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     @user = User.find(params[:user_id])
     @review = Review.new(review_params)
     @review.user = @user
+    @review.reviewer = current_user.first_name
 
     respond_to do |format|
       if @review.save
@@ -19,6 +20,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :reviewer, :created_at)
   end
 end

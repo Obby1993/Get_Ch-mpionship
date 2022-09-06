@@ -21,6 +21,7 @@ class TeamsController < ApplicationController
     end
   end
 
+
   # def edit
   #   @event = Event.find(params[:event_id])
   #   @team = Team.find(params[:team_id])
