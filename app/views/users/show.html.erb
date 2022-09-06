@@ -77,6 +77,19 @@
   </div>
 
  <div class = "profile-reviews">
+  <h2>laissez un commentaire</h2>
+    <div data-controller="insert-in-list">
+      <div data-insert-in-list-target="items">
+      </div>
+      <%= simple_form_for([ @user, @review ],
+                    data: {
+                      insert_in_list_target: "form",
+                      action: "submit->insert-in-list#send"
+                    }) do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.button :submit %>
+      <% end %>
+    </div>
  </div>
 
 

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :reviews, only: :create
+  end
 
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
