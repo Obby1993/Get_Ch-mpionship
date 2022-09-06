@@ -7,9 +7,6 @@ class SelectPlayersController < ApplicationController
   end
 
   def create
-    @users = User.order(:first_name).map do |user|
-      [user.first_name, user.id]
-    end
     @team = Team.find(params[:team_id])
     @user = User.find(params[:select_player][:user_id])
 
@@ -19,12 +16,10 @@ class SelectPlayersController < ApplicationController
       format.html { redirect_to new_team_select_player_path(@team) }
       format.text { render partial: "select_players/form_player", locals: { team: @team }, formats: [:html] }
     end
-    # if @select.save!
-    #   redirect_to event_path(@team.event)
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
   end
 
-
+  def destroy
+    @select_destroy = SelectPlayer.find(params[:id])
+    @select_destroy.destroy
+  end
 end

@@ -13,24 +13,25 @@
 
 
     <h2 id= "titre">Ajoute tes joueurs</h2>
-<div class="page_selection" data-controller="form-by-player" >
+<div class="page_selection" data-controller="form-by-player"
+data-form-by-player-nb-player-value="<%= @team.nb_player %>"
+data-form-by-player-select-player-ids-value="<%=@team.select_player_ids%>">
   <div class="new_player">
-
-    <%# <%(0..@team.nb_player-1).each do |elem|%>
-      <%= render "select_players/form_player", select_player: @select_player, team: @team%>
-    <%# <%end%>
+    <%= render "select_players/form_player", select_player: @select_player, team: @team%>
   </div>
 
   <div class="team">
     <h3>Equipe: <%=@team.team_name%><h3>
-
-
     <ul data-form-by-player-target = "affiche" >
-      <%# <%@team.select_player.each do |player|%>
-      <%# <li>Joueur : <%=player.first_name</li>%>
-        <%# <li>Joueur <%=((0..@team.nb_player-1).index(player) + 1) :<li>%>
-      <%# <%end%>
-    </ul>
+      <%@team.select_player_ids.each do |select|%>
+        <% @select = SelectPlayer.find(select)%>
+        <% @user = User.find(@select.user_id)%>
+        <li><%=@user.last_name%><%=" "%> <%=@user.first_name %> </li>
+        <%=link_to "delete", team_select_player_path(@team ,@select), data: {turbo_method: :delete, form_by_player_target: "no", action:"click->form-by-player#delete"}, class:"icon non"%>
 
+        <%# <i class="fa-solid fa-trash-can-xmark"></i> %>
+        <%# <%end%>
+      <%end%>
+    </ul>
   </div>
 </div>
