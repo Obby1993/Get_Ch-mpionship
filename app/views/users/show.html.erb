@@ -1,7 +1,6 @@
 <div class = "profile-container">
-  <div class = "profile-top">
 
-    <div class="user-info">
+ <div class="user-info">
       <h2>profile</h2>
       <ul>
             <li><span><%@user.last_name.capitalize%> <%@user.first_name.capitalize%></span></li>
@@ -18,6 +17,7 @@
             <%end %>
       </ul>
     </div>
+  <div class = "profile-right">
 
     <div class = container-events>
       <div class = "organized-events-cont">
@@ -43,9 +43,6 @@
               <%end%>
             <%end%>
         </div>
-        <div class = "organized-events-notif">
-        <h2>Notification</h2>
-        </div>
       </div>
 
       <div class = "partecip-events-cont">
@@ -66,34 +63,48 @@
                 <div class = "card-home-link">
                     <p id ="event-link"> <%= link_to event_path(team.event), class: "home-link-to-show" do %> détails <%end %></p>
                 </div>
+                <%end%>
+
+              <% @players.each do |player|%>
+                <%if player.confirmation == false %>
+                   <ul>
+                    <li>
+                        <%=link_to  validate_select_player_path(player), data: {turbo_method: :patch}, class:" icon yes" do%>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <%end%>
+
+                    </li>
+                    <li>
+                        <%=link_to team_select_player_path(player.team_id, player.id), data: {turbo_method: :delete, form_by_player_target: "no"}, class:"icon-none" do%>
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <%end%>
+                    </li>
+                  </ul>
+                  <% else %>
+                  <i class="fa-solid fa-check"></i>
+                  <%end%>
+                <%end%>
               </div>
-              <%end%>
         </div>
-        <div class = "partecip-events-notif">
-          <h2>Notification</h2>
+      </div>
+    </div>
+
+  <div class = "profile-reviews">
+    <h2>Laissez un commentaire </h2>
+      <div data-controller="insert-in-list">
+        <div data-insert-in-list-target="items">
         </div>
+        <%= render "reviews/form", review: @review, user: @user%>
+      </div>
+      <div>
+        <% if @user.reviews.blank? %>
+          Soyez le premier à laisser un avis pour <%= @user.first_name %>
+        <% else %>
+          <% @user.reviews.each do |review| %>
+            <%= render "review", review: review, user: @user, reviewer: @reviewer%>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
-
- <div class = "profile-reviews">
-  <h2>Laissez un commentaire </h2>
-    <div data-controller="insert-in-list">
-      <div data-insert-in-list-target="items">
-      </div>
-      <%= render "reviews/form", review: @review, user: @user%>
-    </div>
-
-
-    <div>
-      <% if @user.reviews.blank? %>
-        Soyez le premier à laisser un avis pour <%= @user.first_name %>
-      <% else %>
-        <% @user.reviews.each do |review| %>
-          <%= render "review", review: review, user: @user, reviewer: @reviewer%>
-        <% end %>
-      <% end %>
-    </div>
- </div>
-
 </div>
