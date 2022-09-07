@@ -1,5 +1,5 @@
 meta_product_name: "Get Ch@mpionship"
 meta_title: "Get Ch@mpionship - Votre majordome digital des événements sportifs "
 meta_description: "Votre outil d'aide à l'organisation d'événement sportif. Une solution claire et intuitive pour gérer à votre place la logistique et la sportive de votre compétition. Vous permettant de vous consacrez entièrement à vos invités/prtatiquants."
-meta_image: "Getchamp-Logo.png" # should exist in `app/assets/images/`
+meta_image: "logo_grand.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
