@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_many :teams, dependent: :destroy
   belongs_to :user
   has_many_attached :photos
+  has_many :event_reviews, dependent: :destroy
 
   validates :event_name, :nb_players_team, :event_start, :event_end, :event_address, :event_gender, :deadline_register, :nb_team, presence: true
   validates :event_name, uniqueness: true

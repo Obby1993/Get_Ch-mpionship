@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :events do
     resources :teams, only: [:index, :create, :new]
+    resources :event_reviews, only: :create
   end
   resources :teams, only: [:destroy, :edit, :update, :show]  do
     resources :select_players, only: [:create, :destroy, :new]
