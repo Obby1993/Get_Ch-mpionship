@@ -17,9 +17,13 @@
 data-form-by-player-nb-player-value="<%= @team.nb_player %>"
 data-form-by-player-select-player-ids-value="<%=@team.select_player_ids%>">
   <div class="new_player">
-    <%= render "select_players/form_player", select_player: @select_player, team: @team%>
+    <div class="add_player">
+      <%= render "select_players/form_player", select_player: @select_player, team: @team%>
+    </div>
+    <div class="add_ami">
+    <p>Votre ami n'est pas encore inscrit sur Get Ch@mpionship ?    <%= mail_to  "", "invitez le !"%></p>
+    </div>
   </div>
-
   <div class="team">
     <h3 id="equipe-titre">Membre de l'équipe:</h3>
     <ul data-form-by-player-target = "affiche" class ="list-joueur">
