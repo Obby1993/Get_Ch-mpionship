@@ -18,8 +18,24 @@ class SelectPlayersController < ApplicationController
     end
   end
 
+  def edit
+    @select = SelectPlayer.find(params[:id])
+  end
+
+  def update
+    @select = SelectPlayer.find(params[:id])
+    @select.update(params[:select]) # Will raise ActiveModel::ForbiddenAttributesError
+  end
+
   def destroy
     @select_destroy = SelectPlayer.find(params[:id])
     @select_destroy.destroy
+  end
+
+  def validate
+    @player = SelectPlayer.find(params[:id])
+    @player.confirmation = true
+    @player.save!
+    redirect_to user_path(user: @player.user)
   end
 end
