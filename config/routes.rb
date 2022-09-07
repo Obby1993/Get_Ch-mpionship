@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   resources :teams, only: [:destroy, :edit, :update, :show]  do
     resources :select_players, only: [:create, :destroy, :new]
   end
+
+  resources :select_players, only: [:destroy] do
+    member do
+      patch :validate
+    end
+  end
 end

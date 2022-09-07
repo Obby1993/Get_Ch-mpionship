@@ -67,3 +67,22 @@
 .link-to-show p:hover{
   font-size: 14px;
 }
+
+ul {
+  position: relative;
+  left: 4px;
+  top: 4px;
+}
+
+li {
+  list-style: none;
+
+
+  i.fa-solid.fa-circle-check{
+    color: green;
+  }
+
+  i.fa-solid.fa-circle-check:hover{
+    color: white;
+  }
+}

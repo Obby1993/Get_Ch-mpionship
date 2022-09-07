@@ -1,51 +1,39 @@
 .profile-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 70%;
+  align-items: flex-start;
+  margin: auto;
 }
 
-.profile-top{
+.profile-right{
   display: flex;
-  width: 90%;
-  justify-content: center;
-  align-items: flex-start;
+  width: 70%;
+  flex-direction: column;
+  margin: auto;
+  align-items: stretch;
 }
 
 .container-events{
   display: flex;
   flex-direction: column;
-  width: 80%;
+  align-items: stretch;
 }
 
 .organized-events-cont, .partecip-events-cont{
   display: flex;
-}
-.organized-events, .partecip-events {
-  width: 70%;
-}
-
-.organized-events-notif, .partecip-events-notif {
-  background-color: #ededed;
-  width: 30%;
-}
-
-.profile-reviews {
-  margin: 10px;
-  padding: 10px;
-  background-color: #ededed;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  width: 60%;
+  flex-direction: column;
 }
 
 
 .user-info{
-  width: 20%;
+  width: 30%;
   background-color: #ccdee6;
   border-radius: 16px;
   margin-right: 20px;
   height: auto;
   padding: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
   h2{
     text-align: center;
     padding: 5px;
@@ -77,7 +65,12 @@
   color: rgba(0, 0, 0, 0.975);
 }
 
-.profile-reviews{
+
+.profile-reviews {
+  margin: 10px;
+  padding: 10px;
+  background-color: #ededed;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: thick double #ccdee6;
 }
 

@@ -82,38 +82,26 @@
 <div class="cards">
 
   <div id="golf">
-    <%= link_to events_path(query: "golf"), method: :get, class: "link-to-show" do  %>
-    Golf
-    <% end %>
+    <%= link_to "Golf", events_path(query: "golf"), method: :get, class: "link-to-show" %>
   </div>
 
   <div  id="football">
-  <%= link_to events_path(query: "foot"), class: "link-to-show" do %>
-    Football
-    <% end %>
+  <%= link_to "Football", events_path(query: "foot"), class: "link-to-show" %>
   </div>
 
   <div id="basket">
-  <%= link_to events_path(query: "basket"), class: "link-to-show" do  %>
-      Basket
-      <% end %>
+  <%= link_to "Basket", events_path(query: "basket"), class: "link-to-show" %>
   </div>
 
    <div id="ping-pong">
-   <%= link_to events_path(query: "ping-pong"), class: "link-to-show" do  %>
-    Ping-pong
-    <% end %>
+   <%= link_to "Ping-pong", events_path(query: "ping-pong"), class: "link-to-show" %>
   </div>
 
   <div id="petanque">
-  <%= link_to events_path(query: "petanque"), class: "link-to-show" do  %>
-    Petanque
-    <% end %>
+  <%= link_to "Petanque", events_path(query: "petanque"), class: "link-to-show" %>
   </div>
 
   <div id="volley">
-  <%= link_to events_path(query: "beach volley"), class: "link-to-show" do  %>
-    Beach Volley
-    <% end %>
+  <%= link_to "Beach Volley", events_path(query: "beach volley"), class: "link-to-show" %>
   </div>
 </div>
