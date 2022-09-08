@@ -55,8 +55,8 @@
 
     <div class = "partecip-home">
       <% if user_signed_in? %>
-
-        <%# <h2 id = "logged-in-title">Je participe</h2> %>
+        <% unless current_user.teams.empty? %>
+        <h2 id = "logged-in-title">Je participe</h2>
         <% current_user.teams.each do |team| %>
           <div class = "card-home">
             <% if team.event.photos.empty?%>
@@ -73,6 +73,7 @@
               <p id ="event-link"> <%= link_to "Détails", event_path(team.event), class: "home-link-to-show"%></p>
             </div>
           </div>
+        <%end%>
         <%end%>
       <%end%>
     </div>

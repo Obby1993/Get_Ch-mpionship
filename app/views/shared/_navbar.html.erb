@@ -17,6 +17,22 @@
             <p><%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%></p>
             <%end%>
         </li>
+        <li>
+          <%@selects = SelectPlayer.where(user_id: current_user, read: false)%>
+          <div class = "notification-cont" data-controller="notification">
+           <% if @selects.length > 0%>
+           <p class="nb-notif"><%=@selects.length%></p>
+           <%end%>
+           <%=link_to do%>
+                <i class="fa-solid fa-bell" data-action="click->notification#revealContent"></i>
+            <%end%>
+            <div class="notification d-none" data-notification-target="content">
+              <%@selects.each do |select|%>
+                  <%= link_to select.notification, reading_select_player_path(select), data: { turbo_method: :patch}%>
+                <%end%>
+            </div>
+          </div>
+        </li>
          <li class="nav-item active">
             <% if current_user.photo.key? %>
               <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
