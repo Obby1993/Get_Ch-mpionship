@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_120907) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_145426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_120907) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "event_reviews", force: :cascade do |t|
+    t.text "content"
+    t.string "reviewer"
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_reviews_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -78,6 +87,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_120907) do
     t.boolean "confirmation", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "notification"
+    t.integer "actor_id"
+    t.boolean "read", default: false
     t.index ["team_id"], name: "index_select_players_on_team_id"
     t.index ["user_id"], name: "index_select_players_on_user_id"
   end
@@ -120,6 +132,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_120907) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "event_reviews", "events"
   add_foreign_key "events", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "select_players", "teams"
