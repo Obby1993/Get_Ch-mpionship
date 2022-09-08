@@ -82,7 +82,27 @@
       </tr>
       <%@event.teams.each do |team| %>
       <tr>
-        <td><%=team.team_name%></td>
+        <td>
+          <div class="btn-group">
+            <div class="btn-group dropstart" role="group">
+              <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+               <span class="visually-hidden"><%=team.team_name%></span>
+              </button>
+              <ul class="dropdown-menu">
+                <% team.select_players.each do |select_player| %>
+                  <% if select_player.confirmation == true %>
+                  <%= link_to user_path(select_player.user), class: "dropdown-item" do%> <%=select_player.user.first_name%> <%=select_player.user.last_name%> <i class="fa-solid fa-circle-check"></i> <% end %>
+                  <% else %>
+                  <%= link_to user_path(select_player.user), class: "dropdown-item" do%> <%=select_player.user.first_name%> <%=select_player.user.last_name%> <i class="fa-solid fa-circle-xmark"></i> <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+              <button type="button" class="btn btn-light btn-lg">
+              <%=team.team_name%>
+              </button>
+          </div>
+        </td>
         <td><%=team.created_at.strftime("%d/%m/%Y-%k:%M")%></td>
         <% if current_user == @event.user || team.user.include?(current_user)%>
         <td><i class="fa-solid fa-trash-can"></i> <small><%= link_to "delete", team_path(team), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this team?"}, class: 'text-danger' %></small></td>
