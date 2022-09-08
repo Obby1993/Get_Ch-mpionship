@@ -13,8 +13,9 @@ class SelectPlayersController < ApplicationController
   def create
     @team = Team.find(params[:team_id])
     @user = User.find(params[:select_player][:user_id])
-
-    @select = SelectPlayer.new(user_id: @user.id, team_id: @team.id)
+    @select = SelectPlayer.new()
+    @select.team = @team
+    @select.user = @user
     @select.notification = "#{current_user.first_name} #{current_user.last_name} vous invite à participer à #{@team.event.event_name}, le #{@team.event.event_start}."
     @select.save!
     respond_to do |format|
@@ -46,7 +47,7 @@ class SelectPlayersController < ApplicationController
     @player = SelectPlayer.find(params[:id])
     @player.confirmation = true
     @player.save!
-    redirect_to user_path(user: @player.user)
+    redirect_to user_path(@player.user)
   end
 
   # def send_notification
