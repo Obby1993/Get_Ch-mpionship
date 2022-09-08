@@ -19,3 +19,6 @@ application.register("map", MapController)
 
 import UsernameAutocompleteController from "./username_autocomplete_controller"
 application.register("username-autocomplete", UsernameAutocompleteController)
+
+import NotificationController from "./notification_controller"
+application.register("notification", NotificationController)
