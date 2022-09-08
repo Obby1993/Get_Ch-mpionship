@@ -30,8 +30,6 @@ user_malik = User.new(email: "malik@gmail.fr",
   user_malik.photo.attach(io:photo_malik, filename: "profil1.png", content_type: "image/jpg")
   user_malik.save!
 
-
-
  user_nice_ville = User.new(email: "ville_nice@gmail.fr",
   password: "password",
   first_name: "Nice Ville",
@@ -95,9 +93,42 @@ user_silvia = User.new(email: "silvia@gmail.fr",
   medical_certificate: false,
   role: 'Player'
   )
-  #photo_silvia = URI.open("https://www.soladis.com/wp-content/uploads/2017/06/personne-1-1.png")
-  #user_silvia.photo.attach(io: photo_silvia, filename: "profil3.png", content_type: "image/png")
+  photo_silvia = URI.open("https://avatars.githubusercontent.com/u/105485047?v=4")
+  user_silvia.photo.attach(io: photo_silvia, filename: "profil3.png", content_type: "image/png")
   user_silvia.save
+
+user_alice = User.new(email: "alice@gmail.fr",
+  password: "password",
+  first_name: "Alice",
+  last_name: 'Daubrée',
+  phone_number: '0609080705',
+  age: 26,
+  gender: 'Femme',
+  address: "avenue de la qualifornie 06000 Nice",
+  main_sport: "Roller",
+  medical_certificate: false,
+  role: 'Player'
+  )
+
+  photo_alice = URI.open("https://avatars.githubusercontent.com/u/107176076?v=4")
+  user_alice.photo.attach(io: photo_alice, filename: "profil4.png", content_type: "image/png")
+  user_alice.save
+
+user_evan = User.new(email: "evan@gmail.fr",
+  password: "password",
+  first_name: "Evan",
+  last_name: 'Aballea',
+  phone_number: '0609080713',
+  age: 20,
+  gender: 'Homme',
+  address: "337 chemin de cremat 06200 Nice",
+  main_sport: "Ski",
+  medical_certificate: true,
+  role: 'Both'
+  )
+  photo_evan = URI.open("https://avatars.githubusercontent.com/u/106963256?v=4")
+  user_evan.photo.attach(io: photo_evan, filename: "profil5.png", content_type: "image/jpg")
+  user_evan.save!
 
 event_beach = Event.new(event_name: "S2 Nice",
   nb_players_team: 2,
@@ -116,20 +147,22 @@ event_beach = Event.new(event_name: "S2 Nice",
   event_beach.photos.attach(io: photo_event_beach, filename: "event1.png", content_type: "image/jpg")
   event_beach.save
 
-  event_beach2 = Event.new(event_name: "S4 Marseille",
-    nb_players_team: 4,
-    price_by_player: 20.0,
-    event_start: Date.today.next_month,
-    event_end: Date.today.next_month + 3,
-    event_address: "3 Chem. de la Colline Saint-Joseph, 13009 Marseille",
-    event_gender: "Mixte",
-    deadline_register: Date.today + 14,
-    prizemoney: 500.0,
-    nb_team: 32,
-    user_id: user_malik.id,
-    activity: "Beach Volley"
-  )
-    event_beach2.save!
+event_beach2 = Event.new(event_name: "S4 Marseille",
+  nb_players_team: 4,
+  price_by_player: 20.0,
+  event_start: Date.today.next_month,
+  event_end: Date.today.next_month + 3,
+  event_address: "3 Chem. de la Colline Saint-Joseph, 13009 Marseille",
+  event_gender: "Mixte",
+  deadline_register: Date.today + 14,
+  prizemoney: 500.0,
+  nb_team: 32,
+  user_id: user_malik.id,
+  activity: "Beach Volley"
+)
+  photo_event_beach2 = URI.open("https://c8.alamy.com/compfr/2c6e13b/beach-volley-ballon-sur-le-sable-et-filet-sur-fond-2c6e13b.jpg")
+  event_beach2.photos.attach(io: photo_event_beach2, filename: "event1.png", content_type: "image/jpg")
+  event_beach2.save!
 
 
 
@@ -189,17 +222,68 @@ event_golf = Event.new( event_name: "Gold Worldcup Monaco",
   price_by_player: 50.0,
   event_start: Date.today.next_month,
   event_end: Date.today.next_month + 5,
-  event_address: " Route du Mont-Agel, 06320 La Turbie",
+  event_address: "Route du Mont-Agel, 06320 La Turbie, France, 43.75298, 7.40883",
   event_gender: "Homme",
   deadline_register: Date.today,
   prizemoney: 10000.0,
   nb_team: 128,
   user_id: user_monaco_ville.id,
   activity: "Golf" )
-  photo_event_golf = URI.open("https://golfdemontecarlo.com/wp-content/uploads/2018/07/Golf-Monte-carlo-Monaco-club-house-18-trous-parcours-green-practice-sport-loisirs-cote-azur-mer-2-1.jpg")
-  event_golf.photos.attach(io: photo_event_golf, filename: "event5.png", content_type: "image/jpg")
-  event_golf.save
 
+photo_event_golf = URI.open("https://golfdemontecarlo.com/wp-content/uploads/2018/07/Golf-Monte-carlo-Monaco-club-house-18-trous-parcours-green-practice-sport-loisirs-cote-azur-mer-2-1.jpg")
+event_golf.photos.attach(io: photo_event_golf, filename: "event5.png", content_type: "image/jpg")
+event_golf.save
+
+event_ping_pong = Event.new( event_name: "Ping pong 2v2",
+  nb_players_team: 2,
+  price_by_player: 0,
+  event_start: Date.today.next_month,
+  event_end: Date.today.next_month + 5,
+  event_address: "8 Av. Raoul Dufy, 06200 Nice",
+  event_gender: "Mixte",
+  deadline_register: Date.today + 15,
+  prizemoney: 0,
+  nb_team: 28,
+  user_id: user_silvia.id,
+  activity: "ping-pong" )
+
+photo_event_ping_pong = URI.open("https://img-4.linternaute.com/F5Ba2PMEN2C3FbETxBtIF9oXWJg=/1500x/smart/578ef31fc88b496eb2c76781d7c73a61/ccmcms-linternaute/10767634.jpg")
+event_ping_pong.photos.attach(io: photo_event_ping_pong, filename: "event6.png", content_type: "image/jpg")
+event_ping_pong.save
+
+event_ping_pong2 = Event.new( event_name: "Ping pong 1v1",
+  nb_players_team: 1,
+  price_by_player: 2,
+  event_start: Date.today.next_month,
+  event_end: Date.today.next_month + 5,
+  event_address: "8 Av. Raoul Dufy, 06200 Nice",
+  event_gender: "Femme",
+  deadline_register: Date.today + 15,
+  prizemoney: 20,
+  nb_team: 8,
+  user_id: user_silvia.id,
+  activity: "ping-pong" )
+
+photo_event_ping_pong2 = URI.open("https://c8.alamy.com/compfr/w47r56/l-homme-et-la-femme-jouant-au-ping-pong-a-l-interieur-couple-in-sportswear-detient-les-raquettes-et-joue-au-tennis-de-table-dans-une-salle-de-sport-w47r56.jpg")
+event_ping_pong2.photos.attach(io: photo_event_ping_pong2, filename: "event7.png", content_type: "image/jpg")
+event_ping_pong2.save
+
+event_basket2 = Event.new( event_name: "Tournoi 5c5 Nice",
+  nb_players_team: 5,
+  price_by_player: 20.0,
+  event_start: Date.today.next_month + 15,
+  event_end: Date.today.next_month + 18,
+  event_address: "1 Rue Jean-Henri Fabre, 06100 Nice",
+  event_gender: "Mixte",
+  deadline_register: Date.today + 1,
+  prizemoney: 500.0,
+  nb_team: 32,
+  user_id: user_evan.id,
+  activity: "Basket 5c5"
+)
+  photo_event_basket2 = URI.open("https://thumbs.dreamstime.com/b/professional-basketball-court-arena-backgrounds-professional-basketball-court-arena-background-168018953.jpg")
+  event_basket2.photos.attach(io: photo_event_basket2, filename: "event8.png", content_type: "image/jpg")
+  event_basket2.save
 
 team_oli_silvia = Team.new( team_name: "Oli/Silv",
   nb_player: 2,

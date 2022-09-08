@@ -1,9 +1,8 @@
 <div class = "profile-container">
 
   <div class="user-info">
-      <h2>profile</h2>
+      <h2><%=@user.last_name.capitalize%> <%=@user.first_name.capitalize%></h2>
       <ul>
-          <li><span><%@user.last_name.capitalize%> <%@user.first_name.capitalize%></span></li>
           <li>
             <% if @user.photo.key? %>
               <%= cl_image_tag @user.photo.key, width: 200 %>

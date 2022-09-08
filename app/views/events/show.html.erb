@@ -45,10 +45,10 @@
     <h2>Organisateur</h2>
     <ul>
       <%if @event.user.organism == "Oui"%>
-          <li><span><%event.user.company_name%></span></li>
-          <li> Contact: <span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
+          <li><span><%=event.user.company_name%></span></li>
+          <li><span><%=@event.user.last_name.capitalize%> <%=@event.user.first_name.capitalize%></span></li>
         <%else%>
-          <li><span><%@event.user.last_name.capitalize%> <%@event.user.first_name.capitalize%></span></li>
+          <li><span><%=@event.user.last_name.capitalize%> <%=@event.user.first_name.capitalize%></span></li>
         <%end%>
           <li>
             <% if @event.user.photo.key? %>
@@ -63,7 +63,7 @@
   </div>
   <div class="information-event">
     <ul>
-      <li>Activité:<span><%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%></span> </li>
+      <li>Activité: <span><%=@event.activity%> en <%=@event.nb_players_team%>c<%=@event.nb_players_team%></span> </li>
       <li>Genre: <span><%=@event.event_gender%></span> </li>
       <li>Nombre d'équipe: <span><%=@event.nb_team%></span> </li>
       <li>Prize Money total: <span><%=@event.prizemoney%>€</span> </li>
