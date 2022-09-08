@@ -5,5 +5,7 @@ class UsersController < ApplicationController
     @players = SelectPlayer.where(user_id: params[:id])
     @user = User.find(params[:id])
     @review = Review.new
+
+    # @teams = Team.where(current_user)
   end
 end
