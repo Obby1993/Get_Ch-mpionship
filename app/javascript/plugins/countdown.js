@@ -16,7 +16,7 @@ function getTimeRemaining(endtime) {
 
 function initializeClock() {
   const endtime = document.getElementById("endtime");
-  console.log("hello")
+
   if(endtime) {
     const innerEndtime = endtime.innerHTML.toString()
     const clock = document.querySelector(".countdown");

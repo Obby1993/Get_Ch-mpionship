@@ -1,96 +1,98 @@
 <div class = "profile-container">
 
- <div class="user-info">
+  <div class="user-info">
       <h2>profile</h2>
       <ul>
-            <li><span><%@user.last_name.capitalize%> <%@user.first_name.capitalize%></span></li>
-            <li>
-              <% if @user.photo.key? %>
-                <%= cl_image_tag @user.photo.key, width: 200 %>
-              <% else %>
-                <%= image_tag "default.png", width: 200 %>
-              <% end %> </li>
-            <li>Numéro: <span><%=@user.phone_number%></span></li>
-            <li>Email: <span><%=@user.email%></span></li>
+          <li><span><%@user.last_name.capitalize%> <%@user.first_name.capitalize%></span></li>
+          <li>
+            <% if @user.photo.key? %>
+              <%= cl_image_tag @user.photo.key, width: 200 %>
+            <% else %>
+              <%= image_tag "default.png", width: 200 %>
+            <% end %> </li>
+          <li>Numéro: <span><%=@user.phone_number%></span></li>
+          <li>Email: <span><%=@user.email%></span></li>
             <% if @user == current_user %>
-            <p id ="edit-button"> <%= link_to edit_user_registration_path(current_user), class: "link-to-user" do %> edit <i class="fa-solid fa-pencil"></i> </p> <%end %>
-            <%end %>
+          <p id ="edit-button"> <%= link_to edit_user_registration_path(current_user), class: "link-to-user" do %> edit <i class="fa-solid fa-pencil"></i> </p> <%end %>
+          <%end %>
       </ul>
-    </div>
-  <div class = "profile-right">
+  </div>
 
+  <div class = "profile-right">
     <div class = container-events>
-      <div class = "organized-events-cont">
-        <div class = "organized-events">
-            <% unless @events.empty? %>
-              <h2 id = "logged-in-title">J'organise</h2>
-              <% @events.each do |event| %>
-                <div class = "card-home">
-                  <% if event.photos.empty? %>
-                    <%= image_tag "event-default.png"%>
-                  <% else %>
-                    <%= cl_image_tag event.photos.first.key%>
-                  <% end %>
+
+
+      <div class = "organized-events">
+        <% unless @events.empty? %>
+          <h2 id = "logged-in-title">J'organise</h2>
+          <% @events.each do |event| %>
+              <div class = "card-home">
+                <% if event.photos.empty? %>
+                  <%= image_tag "event-default.png"%>
+                <% else %>
+                  <%= cl_image_tag event.photos.first.key%>
+                <% end %>
+                
                   <div class = "card-home-info">
                     <h2> Name: <%= event.event_name%></h2>
                     <p> Address: <%= event.event_address%></p>
                     <p> Début: <span><%= event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= event.event_end.strftime("%d/%m/%Y")%></span></p>
                   </div>
                   <div class = "card-home-link">
-                      <p id ="event-link"> <%= link_to event_path(event), class: "home-link-to-show" do %> détails <%end %></p>
+
+
+                    <p id ="event-link"> <%= link_to event_path(event), class: "home-link-to-show" do %> détails <%end %></p>
                   </div>
-                </div>
-              <%end%>
+            </div>
+
             <%end%>
-        </div>
+        <%end%>
       </div>
 
-      <div class = "partecip-events-cont">
-        <div class = "partecip-events">
-            <h2 id = "logged-in-title">Je participe</h2>
+
+      <div class = "partecip-events">
+        <% unless @user.teams.empty? %>
+          <h2 id = "logged-in-title">Je participe</h2>
             <% @user.teams.each do |team| %>
               <div class = "card-home">
                 <% if team.event.photos.empty? %>
-                      <%= image_tag "event-default.png"%>
-                    <% else %>
-                      <%= cl_image_tag team.event.photos.first.key%>
-                    <% end %>
+                  <%= image_tag "event-default.png"%>
+                <% else %>
+                  <%= cl_image_tag team.event.photos.first.key%>
+                <% end %>
                 <div class = "card-home-info">
-                    <h2> Name: <%= team.event.event_name%></h2>
-                    <p> Address: <%= team.event.event_address%></p>
-                    <p> Début: <span><%= team.event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= team.event.event_end.strftime("%d/%m/%Y")%></span></p>
+                  <h2> Name: <%= team.event.event_name%></h2>
+                  <p> Address: <%= team.event.event_address%></p>
+                  <p> Début: <span><%= team.event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= team.event.event_end.strftime("%d/%m/%Y")%></span></p>
                 </div>
                 <div class = "card-home-link">
-                    <p id ="event-link"> <%= link_to event_path(team.event), class: "home-link-to-show" do %> détails <%end %></p>
+                  <p id ="event-link"> <%= link_to "détails", event_path(team.event), class: "home-link-to-show"%></p>
                 </div>
-                <%end%>
-
-              <% @players.each do |player|%>
-                <%if player.confirmation == false %>
-                   <ul>
-                    <li>
-                        <%=link_to  validate_select_player_path(player), data: {turbo_method: :patch}, class:" icon yes" do%>
-                        <i class="fa-solid fa-circle-check"></i>
-                        <%end%>
-
-                    </li>
-                    <li>
-                        <%=link_to team_select_player_path(player.team_id, player.id), data: {turbo_method: :delete, form_by_player_target: "no"}, class:"icon-none" do%>
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        <%end%>
-                    </li>
-                  </ul>
-                  <% else %>
-                  <i class="fa-solid fa-check"></i>
+                <% @players.each do |player|%>
+                  <%if player.confirmation == false %>
+                    <ul>
+                      <li>
+                          <%=link_to  validate_select_player_path(player), data: {turbo_method: :patch}, class:" icon yes" do%>
+                          <i class="fa-solid fa-circle-check"></i>
+                          <%end%>
+                      </li>
+                      <li>
+                          <%=link_to team_select_player_path(player.team_id, player.id), data: {turbo_method: :delete, form_by_player_target: "no"}, class:"icon-none" do%>
+                          <i class="fa-solid fa-circle-xmark"></i>
+                          <%end%>
+                      </li>
+                    </ul>
                   <%end%>
                 <%end%>
               </div>
-        </div>
+            <%end%>
+        <%end%>
       </div>
     </div>
 
-  <div class = "profile-reviews">
-    <h2>Laissez un commentaire </h2>
+
+    <div class = "profile-reviews">
+      <h2>Laissez un commentaire </h2>
       <div data-controller="insert-in-list">
         <div data-insert-in-list-target="items">
         </div>
@@ -107,4 +109,5 @@
       </div>
     </div>
   </div>
+
 </div>

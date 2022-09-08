@@ -109,4 +109,23 @@
       </div>
   </div>
 
+  <div class = "event-reviews">
+    <h2>Laissez un commentaire </h2>
+      <div data-controller="insert-in-list">
+        <div data-insert-in-list-target="items">
+        </div>
+        <%= render "event_reviews/form", event_review: @event_review, event: @event%>
+      </div>
+      <div>
+        <% if @event.event_reviews.blank? %>
+          Soyez le premier à laisser un avis pour <%= @event.event_name %>
+        <% else %>
+          <% @event.event_reviews.each do |event_review| %>
+            <%= render "event_review", event_review: event_review, event: @event, reviewer: @reviewer%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
