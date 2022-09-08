@@ -1,0 +1,15 @@
+<%@selects = SelectPlayer.where(user_id: current_user, read: false)%>
+<div class="controle_notif" style="background-color:black;" data-controller="notification">
+  <% if @selects.length > 0%>
+    <p class="nb-notif"><%=@selects.length%></p>
+  <%end%>
+  <%=link_to do%>
+    <i class="fa-solid fa-bell" data-action="click->notification#revealContent"></i>
+  <%end%>
+  <div class="notification d-none" data-notification-target="content">
+
+    <%@selects.each do |select|%>
+        <%= link_to select.notification, reading_select_player_path(select), data: { turbo_method: :patch}%>
+    <%end%>
+  </div>
+</div>

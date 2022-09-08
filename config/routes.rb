@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :select_players, only: [:destroy] do
     member do
       patch :validate
+      patch :reading
     end
   end
 end
