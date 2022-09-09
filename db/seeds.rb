@@ -77,7 +77,7 @@ user_olivier = User.new(email: "olivier@gmail.fr",
   medical_certificate: true,
   role: 'Both'
   )
-  photo_olivier = URI.open("https://laviedesreines.com/wp-content/uploads/2022/02/Comment-devenir-une-personne-solaire-pour-obtenir-tout-ce-que-vous-voulez-720x540.jpg")
+  photo_olivier = URI.open("https://avatars.githubusercontent.com/u/103443520?v=4")
   user_olivier.photo.attach(io: photo_olivier, filename: "profil2.png", content_type: "image/jpg")
   user_olivier.save!
 
@@ -148,7 +148,7 @@ event_beach = Event.new(event_name: "S2 Nice",
   event_beach.save
 
 event_beach2 = Event.new(event_name: "S4 Marseille",
-  nb_players_team: 4,
+  nb_players_team: 2,
   price_by_player: 20.0,
   event_start: Date.today.next_month,
   event_end: Date.today.next_month + 3,
@@ -157,7 +157,7 @@ event_beach2 = Event.new(event_name: "S4 Marseille",
   deadline_register: Date.today + 14,
   prizemoney: 500.0,
   nb_team: 32,
-  user_id: user_malik.id,
+  user_id: user_olivier.id,
   activity: "Beach Volley"
 )
   photo_event_beach2 = URI.open("https://c8.alamy.com/compfr/2c6e13b/beach-volley-ballon-sur-le-sable-et-filet-sur-fond-2c6e13b.jpg")
