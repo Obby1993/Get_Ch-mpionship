@@ -84,7 +84,7 @@ user_olivier = User.new(email: "olivier@gmail.fr",
 user_silvia = User.new(email: "silvia@gmail.fr",
   password: "password",
   first_name: "Silvia",
-  last_name: 'pasini',
+  last_name: 'Pasini',
   phone_number: '0609080704',
   age: 30,
   gender: 'Femme',
@@ -160,7 +160,7 @@ event_beach2 = Event.new(event_name: "S4 Marseille",
   user_id: user_olivier.id,
   activity: "Beach Volley"
 )
-  photo_event_beach2 = URI.open("https://c8.alamy.com/compfr/2c6e13b/beach-volley-ballon-sur-le-sable-et-filet-sur-fond-2c6e13b.jpg")
+  photo_event_beach2 = URI.open("https://www.countrysportvillage.it/wp-content/uploads/2020/08/MANI_PALLA_BEACH.jpg")
   event_beach2.photos.attach(io: photo_event_beach2, filename: "event1.png", content_type: "image/jpg")
   event_beach2.save!
 
@@ -264,7 +264,7 @@ event_ping_pong2 = Event.new( event_name: "Ping pong 1v1",
   user_id: user_silvia.id,
   activity: "ping-pong" )
 
-photo_event_ping_pong2 = URI.open("https://c8.alamy.com/compfr/w47r56/l-homme-et-la-femme-jouant-au-ping-pong-a-l-interieur-couple-in-sportswear-detient-les-raquettes-et-joue-au-tennis-de-table-dans-une-salle-de-sport-w47r56.jpg")
+photo_event_ping_pong2 = URI.open("https://www.area.fr/sites/default/files/2019-01/area_table_ping_pong_oxygene_01v_0.jpg")
 event_ping_pong2.photos.attach(io: photo_event_ping_pong2, filename: "event7.png", content_type: "image/jpg")
 event_ping_pong2.save
 
