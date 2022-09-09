@@ -105,7 +105,7 @@
       </div>
       <div>
         <% if @user.reviews.blank? %>
-          Soyez le premier à laisser un avis pour <%= @user.first_name %>
+          Soyez le premier à laisser un avis à <%= @user.first_name %>
         <% else %>
           <% @user.reviews.each do |review| %>
             <%= render "review", review: review, user: @user, reviewer: @reviewer%>

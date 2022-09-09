@@ -58,7 +58,7 @@
             <% end %> </li>
           <li>Numéro: <span><%=@event.user.phone_number%></span></li>
           <li>Email: <span><%=@event.user.email%></span></li>
-          <%= link_to "Profile", user_path(@event.user), class: "btn btn-dark"%>
+          <%= link_to "Profil", user_path(@event.user), class: "btn btn-dark"%>
     </ul>
   </div>
   <div class="information-event">
@@ -105,7 +105,7 @@
         </td>
         <td><%=team.created_at.strftime("%d/%m/%Y-%k:%M")%></td>
         <% if current_user == @event.user || team.user.include?(current_user)%>
-        <td><i class="fa-solid fa-trash-can"></i> <small><%= link_to "delete", team_path(team), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this team?"}, class: 'text-danger' %></small></td>
+        <td><i class="fa-solid fa-trash-can"></i> <small><%= link_to "Supprimer", team_path(team), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this team?"}, class: 'text-danger' %></small></td>
         <% end %>
       </tr>
       <%end%>
