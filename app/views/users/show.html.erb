@@ -61,8 +61,8 @@
                   <%= cl_image_tag team.event.photos.first.key%>
                 <% end %>
                 <div class = "card-home-info">
-                  <h2> Name: <%= team.event.event_name%></h2>
-                  <p> Address: <%= team.event.event_address%></p>
+                  <h2> Nom: <%= team.event.event_name%></h2>
+                  <p> Adresse: <%= team.event.event_address%></p>
                   <p> Début: <span><%= team.event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= team.event.event_end.strftime("%d/%m/%Y")%></span></p>
                 </div>
                 <div class = "card-home-link">

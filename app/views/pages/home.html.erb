@@ -20,7 +20,7 @@
                 id: "searchBar",
                 placeholder: "Ville, département, région"
             %>
-             <%= submit_tag "Search", class: "btn btn-dark" %>
+             <%= submit_tag "Rechercher", class: "btn btn-dark" %>
           <% end %>
         </div>
       </div>
@@ -40,8 +40,8 @@
                   <%= cl_image_tag event.photos.first.key%>
                 <% end %>
             <div class = "card-home-info">
-                <h2> Name: <%= event.event_name%></h2>
-                <p> Address: <%= event.event_address%></p>
+                <h2> Nom: <%= event.event_name%></h2>
+                <p> Adresse: <%= event.event_address%></p>
                 <p> Début: <span><%= event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= event.event_end.strftime("%d/%m/%Y")%></span></p>
             </div>
             <div class = "card-home-link">
@@ -65,8 +65,8 @@
               <%= cl_image_tag team.event.photos.first.key%>
             <% end %>
             <div class = "card-home-info">
-              <h2> Name: <%= team.event.event_name%></h2>
-              <p> Address: <%= team.event.event_address%></p>
+              <h2> Nom: <%= team.event.event_name%></h2>
+              <p> Adresse: <%= team.event.event_address%></p>
               <p> Début: <span><%= team.event.event_start.strftime("%d/%m/%Y")%></span> Fin: <span><%= team.event.event_end.strftime("%d/%m/%Y")%></span></p>
             </div>
             <div class = "card-home-link">
