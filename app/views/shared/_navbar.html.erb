@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item active">
           <%= link_to user_path(current_user), class: "nav-link", id:"name" do %>
-            <p><%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%></p>
+            <p><%=current_user.first_name.capitalize()%> <%=current_user.last_name.capitalize()%></p>
             <%end%>
         </li>
         <li>

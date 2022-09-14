@@ -7,30 +7,38 @@
 <% end %>
   <div class="text-banner">
     <h1><%=@event.event_name%></h1>
-    <%= link_to "Participer", new_event_team_path(@event), class:"btn-show"%>
+    <%if @event.deadline_register - DateTime.now >= 0 %>
+      <%= link_to "Participer", new_event_team_path(@event), class:"btn-show", id:"inscription"%>
 
-    <div id="clockdiv">
+      <div id="clockdiv">
         <h2>date limite d'inscription:</h2>
         <p id = "endtime" class = "d-none"><%= @event.deadline_register %></p>
-          <div class = "countdown">
-            <div class ="container-days">
-              <span class="days"></span>
-              <div class="smalltext"><%= t(".jours") %></div>
-            </div>
-            <div class ="container-hours">
-              <span class="hours"></span>
-              <div class="smalltext"><%= t(".heures") %></div>
-            </div>
-            <div class ="container-minutes">
-              <span class="minutes"></span>
-              <div class="smalltext"><%= t(".min") %></div>
-            </div>
-            <div class ="container-seconds">
-              <span class="seconds"></span>
-              <div class="smalltext"><%= t(".sec") %></div>
-            </div>
-    </div>
-</div>
+        <div class = "countdown">
+          <div class ="container-days">
+            <span class="days"></span>
+            <div class="smalltext"><%= t(".jours") %></div>
+          </div>
+          <div class ="container-hours">
+            <span class="hours"></span>
+            <div class="smalltext"><%= t(".heures") %></div>
+          </div>
+          <div class ="container-minutes">
+            <span class="minutes"></span>
+            <div class="smalltext"><%= t(".min") %></div>
+          </div>
+          <div class ="container-seconds">
+            <span class="seconds"></span>
+            <div class="smalltext"><%= t(".sec") %></div>
+          </div>
+        </div>
+      </div>
+    <%else%>
+      <div class="fermeture">
+        <h2>Les inscriptions sont fermées!</h2>
+        <p>Contacter l'organisateur pour plus d'informations </p>
+      </div>
+
+    <%end%>
 
 
 
