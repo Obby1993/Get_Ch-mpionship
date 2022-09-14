@@ -16,6 +16,7 @@ function getTimeRemaining(endtime) {
 
 function initializeClock() {
   const endtime = document.getElementById("endtime");
+  const btn = document.getElementById("inscription");
 
   if(endtime) {
     const innerEndtime = endtime.innerHTML.toString()
@@ -34,7 +35,10 @@ function initializeClock() {
       secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
 
       if (t.total <= 0) {
+
+        btn.classList.add("d-none");
         clearInterval(timeinterval);
+
       }
     }
 
