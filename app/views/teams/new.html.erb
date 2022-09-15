@@ -1,15 +1,24 @@
-<div class="bg-white rounded p-3 shadow">
+<div class="rounded shadow">
 
-  <h2>Inscription à <%=@event.event_name%>
-  <h3>Créer son équipe</h3>
-
-  <%= simple_form_for ([@event, @team  ])  do |f| %>
-    <%= f.input :team_name, placeholder: "Nom d'équipe:" %>
-    <%= f.input :nb_player, placeholder: "Nombre de joueur dans l'équipe:" %>
-    <%= f.input :gender,
-    collection: ["Homme", "Femme", "Mixte"] %>
-
-
-    <%= f.submit label:"Créer", class: 'btn btn-flat' %>
+  <% if @event.photos.empty? %>
+    <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(banner-default.png)">
+  <% else %>
+    <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%=cl_image_path @event.photos.first.key, height: 300, crop: :fill %>')">
   <% end %>
+      <div class="text-banner fermeture">
+        <h1><%=@event.event_name%> </h1>
+        <p>Un tournoi de <%=@event.activity%> (<%= @event.event_gender%>) en <%=@event.nb_players_team%>c<%=@event.nb_players_team%></p>
+      </div>
+    </div>
+<h3>Créer son équipe</h3>
+  <div class="questions">
+    <%= simple_form_for ([@event, @team  ])  do |f| %>
+      <%= f.input :team_name, label: "Nom d'équipe", placeholder: "Nom de chaque joueur" %>
+      <%= f.input :nb_player, label: "Nombre de Joueur dans l'équipe:", placeholder: "0" %>
+      <%= f.input :gender, label:"Genre de l'équipe:", collection: ["Homme", "Femme", "Mixte"] %>
+
+
+      <%= f.submit label:"Créer", class: 'btn btn-flat' %>
+    <% end %>
+  </div>
 </div>

@@ -6,6 +6,8 @@ class TeamsController < ApplicationController
     @event = Event.find(params[:event_id])
     @team = Team.new
     @select_player = SelectPlayer.new
+    flash[:notice] = "Vérifiez bien que votre équipe a le bon nombre de joueur et le bon genre?"
+
   end
 
   def create
@@ -17,6 +19,7 @@ class TeamsController < ApplicationController
         redirect_to new_team_select_player_path(@team)
       else
         render :new, status: :unprocessable_entity
+
       end
     end
   end
