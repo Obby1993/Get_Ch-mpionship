@@ -13,7 +13,7 @@
 <h3>Créer son équipe</h3>
   <div class="questions">
     <%= simple_form_for ([@event, @team  ])  do |f| %>
-      <%= f.input :team_name, label: "Nom d'équipe", placeholder: "Nom de chaque joueur" %>
+      <%= f.input :team_name, label: "Nom d'équipe", placeholder: "Nom de chaque joueurz" %>
       <%= f.input :nb_player, label: "Nombre de Joueur dans l'équipe:", placeholder: "0" %>
       <%= f.input :gender, label:"Genre de l'équipe:", collection: ["Homme", "Femme", "Mixte"] %>
 
