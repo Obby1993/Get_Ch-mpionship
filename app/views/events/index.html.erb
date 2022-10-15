@@ -25,51 +25,45 @@
       </div>
     </div>
 </div>
-<div class = "container-index">
-  <div class = "index-up">
+<%# <div class = "container-index"> %>
 
-
-
-
-
-
-    <div class = "cards-index">
-       <div style="margin-top:50px; margin-left:40px;">
          <h1 id = "index-black"><strong>Liste de tous les événements</strong></h1>
-        </div>
-        <div class ="cards">
+    <div class = "cards-index">
+
           <% @events.each do |event| %>
             <%if event.deadline_register - DateTime.now >= 0 %>
               <div class="card-product">
-                  <% if event.photos.empty? %>
-                    <%= image_tag "event-default.png"%>
-                  <% else %>
-                    <%= cl_image_tag event.photos.first.key%>
-                  <% end %>
-                <div class="card-product-infos">
-                  <div>
-                    <h2> <%= event.event_name %>, <%= event.activity %></h2>
-                    <p>  <%= event.event_address %></p>
-                    <p> Date: de <%= event.event_start.strftime("%d-%m-%Y") %> à <%= event.event_end.strftime("%d-%m-%Y") %></p>
-                  </div>
-                  <%=  link_to event_path(event), class: "link-to-show" do%>
-                    <p class = "card-product-details"> détails</p>
-                  <% end  %>
-                  <% if event.user.photo.key? %>
-                    <%= cl_image_tag event.user.photo.key, width: 40, height: 40, crop: :fill, class: "card-product-user"%>
-                  <% else %>
-                    <%= image_tag "default.png", width: 40, height: 40, crop: :fill, class: "card-product-user" %>
-                  <% end %>
-                </div>
+                <%=  link_to event_path(event) do%>
+                    <div class="card-image">
+                      <% if event.photos.empty? %>
+                        <%= image_tag "event-default.png"%>
+                      <% else %>
+                        <%=  cl_image_tag event.photos.first.key, class:"image"%>
+                      <% end %>
+                    </div>
+                    <div class="card-product-infos">
+                      <div>
+                        <h2> <%= event.event_name %>, <%= event.activity %></h2>
+                        <p>  <%= event.event_address %></p>
+                        <p> Date: de <%= event.event_start.strftime("%d-%m-%Y") %> à <%= event.event_end.strftime("%d-%m-%Y") %></p>
+
+                        <%# <p class = "card-product-details"> détails</p> %>
+                      <% if event.user.photo.key? %>
+                        <%= cl_image_tag event.user.photo.key, width: 40, height: 40, crop: :fill, class: "card-product-user"%>
+                      <% else %>
+                        <%= image_tag "default.png", width: 40, height: 40, crop: :fill, class: "card-product-user" %>
+                      <% end %>
+                      </div>
+                    </div>
+                <% end %>
               </div>
             <%else%>
             <%end%>
           <% end %>
-        </div>
-    </div>
-  </div>
 
-</div>
+    </div>
+
+<%# </div> %>
 
     <div id = "map"
       data-controller="map"

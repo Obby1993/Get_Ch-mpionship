@@ -1,22 +1,17 @@
-.container-index {
-  display: flex;
-  flex-direction: column;
+.search{
+  background-color: bisque;
+  padding: 200px;
+  height: 300px;
+}
 
-  .index-up{
-   display: flex;
-   align-items: flex-start;
 
-   .cards-index{
-     flex-grow: 2;
-   }
-   .search{
-     background-color: bisque;
-     padding: 200px;
-     height: 300px;
+#index-black{
+ color: black;
+ margin-top:50px;
+   margin-left:40px;
+}
 
-   }
-  }
- }
- #index-black{
-  color: black;
- }
+// .cards-index{
+//   display: flex;
+//   flex-grow: 2;
+// }
