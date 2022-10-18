@@ -108,3 +108,23 @@
 .container-review:hover {
   background-color: #af8c8cfd;
 }
+
+
+.card-img img {
+  max-height: 120px;
+  max-width: 100%;
+}
+
+.card-user {
+  display: flex;
+   justify-content: space-between;
+}
+
+.infos {
+  width: 830px;
+}
+.validation {
+  width: 15px;
+  ul{padding: 0;}
+
+}
